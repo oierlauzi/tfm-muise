@@ -1,0 +1,13 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+The tests described in the previous chapter show the importance of the initial solution in the 3D classification problem. This is not surprising, as there are countless examples in the scientific literature that describe this issue. The method presented here proves to be a very relevant approach for providing a reliable and high quality initial solution.
+
+In fact the TRPV-5 experiment was of particular interest, as neither Relion nor Cryosparc were able to converge. However, our approach managed to provided a correct solution. In addition, when its outcome was fed into Relion for further refinement, this managed to converge in a few iterations. This reinforces the previous statement, as Relion on its own did not converge, but when provided with our initial solution it completed successfully. Indeed, the experiments have shown that the best results were obtained when combining our algorithm with a couple of Relion \gls{em} iterations. In addition, this pathway not only provides superior results but also demonstrates to be one of the most performing ways to achieve 3D classification, only being beaten by our standalone initial solution.
+
+Even though discrete 3D classification is deemed obsolete for elucidating continuous movements of macromolecules, the continuous flexibility analysis tools are computationally very expensive, requiring hours or days to complete. Thus, the high throughput of the algorithm described in this work proves to be a viable option for preliminarily testing of conformational heterogeneity in a dataset. What is more, continuous flexibility analysis is not suited for compositional heterogeneity experiments, which are better modeled by the classical 3D classification methods. As a consequence, 3D classification remains as a necessary and crucial step in \gls{cryoem} image processing.
+
+All in all, our method has proven to be a very effective approach to 3D classification, a necessary step in many \gls{cryoem} image processing scenarios. We have empirically demonstrated the improvements obtained by using it, both in terms of the quality of the results and the computational time required to obtain them. Therefore, we hope that structural biologists will take advantage of it for elucidating the behavioral insights of critical proteins involved in diseases.
+
+\end{document}

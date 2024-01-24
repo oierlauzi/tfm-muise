@@ -1,0 +1,26 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Generalization to multiple classes}
+One of the largest limitations of our algorithm is that it is fixed to providing two classes. At the same time, many problems in biology require more that these two classes. As the classification algorithm is integrated in Scipion, the user may run it repeatedly in a hierarchical manner to obtain a greater amount of classes. However, this is tedious and inefficient. Thus, our next step is to automatize this hierarchical classification process. 
+
+Several of such approaches of this hierarchical classification already exist. For instance, as described by J. Gomez-Blanco et al., their approach subdivides each class until no resolution improvement can be obtained from this partitioning. To do so, they employ the ResLog plot criteria, which relates the reconstruction resolution with the amount of particles used at it\cite{stagg2014}. A separation necessarily involves that less particles will be used for each reconstruction, so the overall resolution is expected to decrease. In their approach, the ResLog plot is used to test if the resolution improves in relative terms to the particle count. At the end, similar classes can be merged to gain back resolution\cite{gomezblanco2022}.
+
+\section{Performance improvements}
+Even though our algorithm has demonstrated superior performance, its implementation can be improved in many ways to maximize computational resource usage. During testing, we have observed that the majority of time is devoted to the 2D group classifications. At the same time, this process was barely using the \gls{gpu} of the system. 
+
+We suspect that this is due to a disk \gls{io} bottleneck, as many images need to be loaded onto the \gls{gpu}, which can incur a higher computation time than the actual image processing. Currently, the classification program is invoked once per group. We believe that if the classification program is modified to consider a set of groups, loading only once duplicate particles can help to reduce the overall loading times.
+
+\section{3D classification refinement}
+In the results shown in this work, we have observed cases where subsequent \gls{em} iterations help to improve the initial partition in certain cases. In those results we have employed Relion to carry out those \gls{em} iterations. However, we intend to develop our own tools to refine the initial partition. A prototype of such a program has been already implemented in Xmipp, but extensive testing is yet needed. 
+
+A potential variant of this refinement program could also consider slight variations in the angular assignment from the consensus volume, as these were estimated from a partially incorrect map. 
+
+\section{Classification consensus}
+Another moral obtained from the experiments presented in this project is that 3D classification algorithms are highly unstable and there is no single solution that is robust in all cases. This is not unique to the 3D classification problem, indeed, it is a common topic in all steps of the \gls{cryoem} image processing pipeline. One of the supporting pillars of Scipion is the ability to to contrast results from multiple executions of the same step, even allowing to compare distinct implementations. Such programs are named as consensus and their primary intention is to automatically combine the results in the best way possible.
+
+Currently, we are also working on a 3D classification consensus protocol which provides confidence scores to each of the classes and automatically selects the optimal number of classes based on this score.
+
+
+\end{document}

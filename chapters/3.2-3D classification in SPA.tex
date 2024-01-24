@@ -1,0 +1,40 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+One of the key challenges in \gls{cryoem} is the heterogeneity of biological samples, where multiple conformations or compositions may coexist within a single dataset. 3D classification emerges as a crucial strategy to address this challenge.
+
+Unlike 2D classification, which clusters particles based on their similarity, 3D classification leverages the 3D nature of the data to classify particles according to the structure they originate from. However, this is not a trivial task, since these structural variations are unknown. Consequently, particles must be categorized according to a criteria that is hidden. Additionally, the data poses a very low \gls{snr}, which is in the order of $1/10$, further complicating the task\cite{nogales2015}.
+
+More often than not, 3D classification is executed after a 3D refinement. This means that particles have their orientations estimated. Similarly, a volume reconstruction comes implicit with these angular estimations. Due to the fact that a single volume was reconstructed from a presumably heterogeneous dataset, it will show features from multiple states. Therefore, this volume is named as ``consensus volume''. Usually, structural features that remain invariant across states can be reconstructed at high resolution, but non consistent regions will be significantly degraded\cite{herreros2021}.
+
+This suggests that heterogeneity information is local. Thus, 3D classification is usually performed in a focused manner. To do so, 3D classification algorithms can be provided with a 3D mask that selects a \gls{roi} on which the classification focuses. If the \gls{roi} is unknown, the whole protein is can be selected.
+
+Regarding the algorithmic implementation of the state-of-the-art solutions, these usually take an iterative \gls{em} approach to the problem. However, several alternatives have arised in the last decade. These approaches will be detailed hereafter.
+
+\subsection{Expectation Maximization algorithms}
+\Gls{em} is an iterative method to find a local estimate for an unknown parameter of an statistical model\cite{meng1997}. When \gls{em} is used for 3D classification in \gls{cryoem}, on each iteration, each particle is compared to a set of volumes to find the likelihoods of having been projected from each one of them (expectation). Then, these volumes are reconstructed with the most likely particles (maximisation). These newly reconstructed volumes are used as reference for the next iteration. Successive iterations of this process are expected to reinforce distinctive features on each of the volumes\cite{cryosparc}.
+
+In spite of this, an initial solution is required for the first iteration of the algorithm. It's important to recognize that \gls{em} algorithms to converge to a local solution\cite{meng1997}, implying that the convergence is influenced by the chosen initial solution\cite{sorzano2022}\cite{jonic2016}. Therefore, the selection of the starting point plays a crucial role in the outcome of the \gls{em} algorithm. At the same time, many existing algorithms depend on randomness to generate these initial solutions, ultimately leading to highly non-deterministic results.
+
+For instance, as stated in Relion's 2016 paper on the topic of 3D classification, ``Unsupervised classification is achieved by initializing multireference refinements from a single, low-resolution consensus model and assigning a random class to each particle in the first iteration''\cite{scheres2016}.  Similarly, Cryosparc offers ``simple'' initialisation which is equivalent to the previous one. 
+
+Another common pitfall of the \gls{em} algorithms is the so called ``Attraction problem'', which relates to a class gathering increasingly more elements on each iteration\cite{sorzano2022}\cite{gomezblanco2022}. This can be attributed to many factors, but in the context of \gls{cryoem} it is usually provoked by a class that has slightly better \gls{snr} than the other classes. Then, this class will correlate better with many elements\cite{sorzano2010}\cite{jonic2016}, albeit these are not being correctly classified. This in turn will lead to more particles being averaged on that class, further increasing it's \gls{snr}\cite{sorzano2021}.
+
+In general, \gls{em} based 3D classification requires a prior knowledge of the number of classes in the dataset\cite{jonic2016}. This information is not always available to the user, specially when the protein is flexible and the concept of class does not exist (instead there is a continuum of states). Nevertheless, there are numerous approaches that circumvent this limitation such as performing hierarchical 3D classifications\cite{gomezblanco2022}\cite{zhou2022}.
+
+\subsection{3D Variance Analysis}
+3D variance analysis takes advantage of many reconstructions from randomly selected subsets in the data. Then, these random reconstructions are compared using variability analysis techniques such as \gls{pca} so that varying regions can be recognized\cite{penczek2006}. Usually, 3D variance analysis is used as a method to obtain a initial solution for subsequent \gls{em} interactions. 
+
+Contrary to the \gls{em} approaches, 3D variance analysis does not require a prior knowledge about the number of classes, as these can be inferred from the densities in the latent space\cite{jonic2016}. Nevertheless, many hyper-parameters such as the number of particles per reconstruction, the number of random reconstructions and latent space dimensionality need to be chosen in advance.
+
+A widespread implementation of this approach is in Cryosparc, which offers a \gls{pca} initialization before performing online \gls{em} iterations\cite{cryosparc}. This \gls{pca} approach is also available in the \texttt{split volumes} protocol from Xmipp\cite{strelak2021a}.
+
+\subsection{Flexibility analysis}
+Until this point, we have coped with conformational heterogeneity by classifying the particles in numerous discrete classes. This method reconstructs various states from particle images under the assumption that there is a defined number of discrete conformational states explored by the specimen. While this approach has proven successful in many cases, these discrete states limit the information that can be extracted regarding the actual motion of the protein. As a consequence, recent leaps in hardware and software have allowed to extract this motion information from individual particles\cite{herreros2023}.
+
+Indeed, this is a very novel field in the field of \gls{cryoem} and several unique approaches have arised in the last few years. Although the particular implementations vary greatly, they all converge by the fact that they are based on \glspl{dnn}\cite{schwab2023}. 
+
+Nevertheless flexibility analysis is not a substitute for 3D classification, as it relies on the fact that atomic mass remains invariant across states. For obvious reasons, this does not hold true for compositional heterogeneity, where a compound may or may not be present. 
+
+\end{document}

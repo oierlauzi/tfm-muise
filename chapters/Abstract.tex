@@ -1,0 +1,17 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\Gls{cryoem} has emerged as a powerful technique for high-resolution imaging of biological samples such as proteins. One of the key challenges in \gls{cryoem} is the heterogeneity of the samples, meaning that a single dataset may contain multiple conformations or compositions of the specimens. This is specially a problem, as most of the \gls{spa} image processing algorithms rely on the assumption that all projections originate from the same 3D structure. 
+
+3D classification is a essential process to address this issue. During the process of 3D classification, projections are labeled according to the structure they originate from, such that once segregated, the homogeneity assumption holds true. In this thesis, we propose a novel 3D classification method that leverages graph algorithms to enhance the accuracy and efficiency of state-of-the-art implementations.
+
+Most of these modern implementations fall victim of the initial solution bias problem, a well documented issue in the scientific literature. In essence, these implementations iteratively refine a randomly generated initial solution, running the risk of falling into local minimas. 
+
+The method proposed here deterministically provides a initial solution where classes are maximally separated, so that subsequent iterations are biased towards the correct solution. In addition, fewer of these iterations are necessary until convergence, decreasing the overall execution time.
+
+To validate the effectiveness of this approach, several experimental datasets were carefully chosen and employed in comprehensive testing. In fact, results consistently supported the former assertions. 
+
+We believe that these leaps in 3D classification can incur in better image processing pipelines for \gls{spa}, increasing the productivity of structural biologists.
+
+\end{document}

@@ -1,0 +1,121 @@
+\documentclass{etsit-report}
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Metadata
+%
+\title{Development of novel 3D classification methods for Cryo-Electron Microscopy}
+\degree{Máster Universitario en Ingeniería de Sistemas Electrónicos}
+\thesistype{Trabajo de Fin de Máster}
+\author{Oier Lauzirika Zarrabeitia}
+\director{Carlos Óscar Sorzano Sánchez \\ Narciso García Santos}
+\department{Departamento de Señales, Sistemas y Radiocomunicaciones}
+\date{February 2024}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paths
+%
+
+% Figures
+\graphicspath{{figures/}}
+
+% References
+\addbibresource{references.bib}
+
+% Acronyms
+\makeglossaries
+\loadglsentries{acronyms}
+
+\usepackage{subfiles} % Best loaded last in the preamble
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document
+%
+\begin{document}
+\frontmatter
+
+% Frontpage
+\cleardoublepage
+\makefrontpage
+
+% Information page
+\cleardoublepage
+\makeinfopage
+
+% Title
+\cleardoublepage
+\maketitle
+
+% Resumen and abstract
+\newpage\thispagestyle{empty}
+\begin{otherlanguage}{spanish}
+\begin{abstract}
+    \subfile{chapters/Resumen}
+\end{abstract}
+\textit{\textbf{Palabras clave:}}
+TODO
+
+\newpage\thispagestyle{empty}
+\end{otherlanguage}
+\begin{abstract}
+    \subfile{chapters/Abstract}
+\end{abstract}
+\textit{\textbf{Keywords: }}
+CryoEM, Single Particle Analysis, 3D classification, graph theory
+
+% ToC, ToF, ToT
+\cleardoublepage
+\tableofcontents
+\listoffigures
+\listoftables
+%\lstlistoflistings
+
+% Glossary
+\printglossary[type=\acronymtype]
+
+\mainmatter
+
+% Chapters
+\chapter{Introduction and objectives}
+\label{chap:introduction}
+\subfile{chapters/1-Introduction and objectives}
+
+\chapter{Single Particle Analysis}
+\label{chap:spa}
+\subfile{chapters/2-Single Particle Analysis}
+
+\chapter{State of the art}
+\label{chap:state_of_the_art}
+\subfile{chapters/3-State of the art}
+
+\chapter{Implementation}
+\label{chap:implementation}
+\subfile{chapters/4-Implementation}
+
+\chapter{Results}
+\label{chap:results}
+\subfile{chapters/5-Results}
+
+\chapter{Conclusions}
+\label{chap:conclusions}
+\subfile{chapters/6-Conclusions}
+
+\chapter{Future work}
+\label{chap:future}
+\subfile{chapters/7-Future work}
+
+% Bibliography
+\printbibliography
+
+% Appendices
+\appendix
+
+\chapter{Social, economic, environmental, ethical and professional impacts}
+\label{app:impacts}
+\subfile{appendices/A-Social, economic, environmental, ethical and professional impacts}
+
+\chapter{Economic budget}
+\label{app:budget}
+\subfile{appendices/B-Economic budget}
+
+\end{document}

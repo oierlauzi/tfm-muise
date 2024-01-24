@@ -1,0 +1,18 @@
+\documentclass[../main.tex]{subfiles}
+
+\graphicspath{{\subfix{../figures/}}}
+
+\begin{document}
+
+Most of the state-of-the-art 3D classification solutions take an iterative approach through \gls{em}. On each iteration, particle projections are compared to multiple structures to find the best fit. Then, these structures are reconstructed with the particles that have been assigned to them. 
+
+However, these algorithms need to be provided with a initial solution, which is typically randomly generated. At the same time, it is very well documented that this initial solution will introduce a bias to the \gls{em} algorithm\cite{sorzano2022}\cite{jonic2016}. This is attributed to the fact that the \gls{em} tends to converge to a local minima around the initial solution\cite{kennedy2008}. Given the random nature of the initial solution, there is a risk that the algorithm may fail to converge to the correct solution.
+
+Moreover, the \gls{em} iterations are computationally very expensive, as they involve many image to volume comparisons. As a consequence, the 3D classification algorithms also take a long time to complete.  
+
+On this thesis we intend to develop a novel 3D classification method that swiftly provides a solid initial solution. This has two implications: Firstly, subsequent \gls{em} iterations will be biased towards the correct solution. Secondly, due to the quality of the initial solution, less \gls{em} iterations are necessary until convergence, reducing the total time required for the 3D classification process.
+
+This algorithm has direct implications in the field of structural biology, as researches will be able to obtain quicker and more reliable outcomes from their experiments. This in turn has direct implications on the pace of drug and vaccine discoveries.
+
+\end{document}
+ 

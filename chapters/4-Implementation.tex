@@ -1,0 +1,13 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+In this project we aim to develop a novel method for determining a reliable initial 3D classification. Doing so, many of the inconveniences related to the current \gls{em} and 3D variations analysis approaches are avoided. The algorithm detailed on this chapter provides a high quality initial solution to the subsequent \gls{em} iterations. Doing so, the \gls{em} algorithm's convergence will be biased towards the correct solution, avoiding local minima and attraction problem. This increased quality of the initial solution also implies that fewer \gls{em} iterations are demanded, which in conjunction with the computational efficiency of the algorithm, allows for a significant speed up on the 3D classification process. Lastly, very few hyper-parameters are required to be tuned to achieve correct results.
+
+\section{Initial partition algorithm}
+\subfile{4.1-Initial partition algorithm}
+
+\section{Software architecture}
+\subfile{4.2-Software architecture}
+
+\end{document}

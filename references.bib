@@ -1,0 +1,1142 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Articles
+%
+
+@article{orlova2011,
+    author = {Orlova, E. V. and Saibil, H. R.},
+    title = {Structural Analysis of Macromolecular Assemblies by Electron Microscopy},
+    journal = {Chemical Reviews},
+    volume = {111},
+    number = {12},
+    pages = {7710-7748},
+    year = {2011},
+    doi = {10.1021/cr100353t},
+    note = {PMID: 21919528},
+    URL = {https://doi.org/10.1021/cr100353t},
+    eprint = {https://doi.org/10.1021/cr100353t}
+}
+
+@article{vargas2014,
+    author = {Vargas, Javier and Álvarez-Cabrera, Ana-Lucia and Marabini, Roberto and Carazo, Jose M. and Sorzano, C. O. S.},
+    title = "{Efficient initial volume determination from electron microscopy images of single particles}",
+    journal = {Bioinformatics},
+    volume = {30},
+    number = {20},
+    pages = {2891-2898},
+    year = {2014},
+    month = {06},
+    abstract = "{Motivation: Structural information of macromolecular complexes provides key insights into the way they carry out their biological functions. The reconstruction process leading to the final 3D map requires an approximate initial model. Generation of an initial model is still an open and challenging problem in single-particle analysis. Results: We present a fast and efficient approach to obtain a reliable, low-resolution estimation of the 3D structure of a macromolecule, without any a priori knowledge, addressing the well-known issue of initial volume estimation in the field of single-particle analysis. The input of the algorithm is a set of class average images obtained from individual projections of a biological object at random and unknown orientations by transmission electron microscopy micrographs. The proposed method is based on an initial non-lineal dimensionality reduction approach, which allows to automatically selecting representative small sets of class average images capturing the most of the structural information of the particle under study. These reduced sets are then used to generate volumes from random orientation assignments. The best volume is determined from these guesses using a random sample consensus (RANSAC) approach. We have tested our proposed algorithm, which we will term 3D-RANSAC, with simulated and experimental data, obtaining satisfactory results under the low signal-to-noise conditions typical of cryo-electron microscopy. Availability: The algorithm is freely available as part of the Xmipp 3.1 package [ http://xmipp.cnb.csic.es ]. Contact:jvargas@cnb.csic.esSupplementary information:Supplementary data are available at Bioinformatics online. }",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btu404},
+    url = {https://doi.org/10.1093/bioinformatics/btu404},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/30/20/2891/17146134/btu404.pdf},
+}
+
+@article{dimitry2019,
+    title = {Challenges and opportunities in cryo-EM single-particle analysis},
+    journal = {Journal of Biological Chemistry},
+    volume = {294},
+    number = {13},
+    pages = {5181-5197},
+    year = {2019},
+    issn = {0021-9258},
+    doi = {https://doi.org/10.1074/jbc.REV118.005602},
+    url = {https://www.sciencedirect.com/science/article/pii/S0021925820355666},
+    author = {Dmitry Lyumkis},
+    keywords = {protein structure, cryo-electron microscopy, single-particle analysis, protein–protein interaction, structural biology, atomic resolution},
+    abstract = {Cryogenic electron microscopy (cryo-EM) enables structure determination of macromolecular objects and their assemblies. Although the techniques have been developing for nearly four decades, they have gained widespread attention in recent years due to technical advances on numerous fronts, enabling traditional microscopists to break into the world of molecular structural biology. Many samples can now be routinely analyzed at near-atomic resolution using standard imaging and image analysis techniques. However, numerous challenges to conventional workflows remain, and continued technical advances open entirely novel opportunities for discovery and exploration. Here, I will review some of the main methods surrounding cryo-EM with an emphasis specifically on single-particle analysis, and I will highlight challenges, open questions, and opportunities for methodology development.}
+}
+
+@article{nogales2015,
+    title = {Cryo-EM: A Unique Tool for the Visualization of Macromolecular Complexity},
+    journal = {Molecular Cell},
+    volume = {58},
+    number = {4},
+    pages = {677-689},
+    year = {2015},
+    issn = {1097-2765},
+    doi = {https://doi.org/10.1016/j.molcel.2015.02.019},
+    url = {https://www.sciencedirect.com/science/article/pii/S1097276515001331},
+    author = {Eva Nogales and Sjors H.W. Scheres},
+    abstract = {3D cryo-electron microscopy (cryo-EM) is an expanding structural biology technique that has recently undergone a quantum leap progression in its achievable resolution and its applicability to the study of challenging biological systems. Because crystallization is not required, only small amounts of sample are needed, and because images can be classified in a computer, the technique has the potential to deal with compositional and conformational mixtures. Therefore, cryo-EM can be used to investigate complete and fully functional macromolecular complexes in different functional states, providing a richness of biological insight. In this review, we underlie some of the principles behind the cryo-EM methodology of single particle analysis and discuss some recent results of its application to challenging systems of paramount biological importance. We place special emphasis on new methodological developments that are leading to an explosion of new studies, many of which are reaching resolutions that could only be dreamed of just a couple of years ago.}
+}
+
+@article {pfab2020,
+	author = {Pfab, Jonas and Si, Dong},
+	title = {DeepTracer: Predicting Backbone Atomic Structure from High Resolution Cryo-EM Density Maps of Protein Complexes},
+	elocation-id = {2020.02.12.946772},
+	year = {2020},
+	doi = {10.1101/2020.02.12.946772},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {Motivation Accurately determining the atomic structure of proteins represents a fundamental problem in the field of structural bioinformatics. A solution would be significant as protein structure information could be utilized in the medical field, e.g. in the development of vaccines for new viruses. This paper focuses on predicting the protein structure based on 3D images of the proteins captured through cryogenic electron microscopes (cryo-EM). A fully automated computationally efficient protein structure prediction method would be particularly beneficial in the field of cryo-EM as the technology allows researchers to photograph multiple large protein complexes in a single study, which means that a fast prediction method could allow for a high throughput of derived protein structures. We present a deep learning approach, DeepTracer, for predicting locations of the backbone atoms, secondary structure elements, and the amino acid types. In order to connect the predicted amino acids into chains, we applied a modified traveling salesman algorithm.Results We trained our deep learning model on experimental cryo-EM density maps and tested it on a set of 50 density maps. We found that our new approach predicted protein structures with an average RMSD value of 1.18 and a coverage of 87.5\%. Furthermore, we detected secondary structure information for 87.2\% of amino acids correctly. We also showed preliminarily that 25.2\% of amino acid types could be predicted directly from the 3D cryo-EM density map, considering 20 different types in total. Finally, we noted that the prediction runtime of DeepTracer is significantly improved compared to other methods. It predicts a large protein complex structure of more than 30,000 amino acids in only 2 hours.Availability The repository of this project will be published.Contact dongsi{at}uw.eduSupplementary information Supplementary data will be available at Bioinformatics online.},
+	URL = {https://www.biorxiv.org/content/early/2020/02/13/2020.02.12.946772},
+	eprint = {https://www.biorxiv.org/content/early/2020/02/13/2020.02.12.946772.full.pdf},
+	journal = {bioRxiv}
+}
+
+@article{sigworth2015,
+    author = {Sigworth, Fred J.},
+    title = "{Principles of cryo-EM single-particle image processing}",
+    journal = {Microscopy},
+    volume = {65},
+    number = {1},
+    pages = {57-67},
+    year = {2015},
+    month = {12},
+    abstract = "{Single-particle reconstruction is the process by which 3D density maps are obtained from a set of low-dose cryo-EM images of individual macromolecules. This review considers the fundamental principles of this process and the steps in the overall workflow for single-particle image processing. Also considered are the limits that image signal-to-noise ratio places on resolution and the distinguishing of heterogeneous particle populations.}",
+    issn = {2050-5698},
+    doi = {10.1093/jmicro/dfv370},
+    url = {https://doi.org/10.1093/jmicro/dfv370},
+    eprint = {https://academic.oup.com/jmicro/article-pdf/65/1/57/7953157/dfv370.pdf},
+}
+
+@article{leschziner2007,
+    author = {Leschziner, Andres E. and Nogales, Eva},
+    title = {Visualizing Flexibility at Molecular Resolution: Analysis of Heterogeneity in Single-Particle Electron Microscopy Reconstructions},
+    journal = {Annual Review of Biophysics and Biomolecular Structure},
+    volume = {36},
+    number = {1},
+    pages = {43-62},
+    year = {2007},
+    doi = {10.1146/annurev.biophys.36.040306.132742},
+    note ={PMID: 17201674},
+    URL = { https://doi.org/10.1146/annurev.biophys.36.040306.132742 },
+    eprint = { https://doi.org/10.1146/annurev.biophys.36.040306.132742 },
+    abstract = { It is becoming increasingly clear that many macromolecules are intrinsically flexible and exist in multiple conformations in solution. Single-particle reconstruction of vitrified samples (cryo-electron microscopy, or cryo-EM) is uniquely positioned to visualize this conformational flexibility in its native state. Although heterogeneity remains a significant challenge in cryo-EM single-particle analysis, recent efforts in the field point to a future where it will be possible to tap into this rich source of biological information on a routine basis. In this article, we review the basic principles behind a few relatively new and generally applicable methods that show particular promise as tools to analyze macromolecular flexibility. We also discuss some of their recent applications to problems of biological interest. }
+}
+
+@article{razi2017,
+    author = {Razi, Aida and Ortega, Joaquin and Guarné, Alba},
+    year = {2017},
+    month = {03},
+    pages = {},
+    title = {The cryo-EM structure of YjeQ bound to the 30S subunit suggests a fidelity checkpoint function for this protein in ribosome assembly},
+    volume = {114},
+    journal = {PNAS},
+    doi = {10.1073/pnas.1618016114}
+}
+
+@article{lyumkis2019,
+    title = {Challenges and opportunities in cryo-EM single-particle analysis},
+    journal = {Journal of Biological Chemistry},
+    volume = {294},
+    number = {13},
+    pages = {5181-5197},
+    year = {2019},
+    issn = {0021-9258},
+    doi = {https://doi.org/10.1074/jbc.REV118.005602},
+    url = {https://www.sciencedirect.com/science/article/pii/S0021925820355666},
+    author = {Dmitry Lyumkis},
+    keywords = {protein structure, cryo-electron microscopy, single-particle analysis, protein–protein interaction, structural biology, atomic resolution},
+    abstract = {Cryogenic electron microscopy (cryo-EM) enables structure determination of macromolecular objects and their assemblies. Although the techniques have been developing for nearly four decades, they have gained widespread attention in recent years due to technical advances on numerous fronts, enabling traditional microscopists to break into the world of molecular structural biology. Many samples can now be routinely analyzed at near-atomic resolution using standard imaging and image analysis techniques. However, numerous challenges to conventional workflows remain, and continued technical advances open entirely novel opportunities for discovery and exploration. Here, I will review some of the main methods surrounding cryo-EM with an emphasis specifically on single-particle analysis, and I will highlight challenges, open questions, and opportunities for methodology development.}
+}
+
+@article{scheres2021,
+    author = {Kimanius, Dari and Dong, Liyi and Sharov, Grigory and Nakane, Takanori and Scheres, Sjors H. W.},
+    title = "{New tools for automated cryo-EM single-particle analysis in RELION-4.0}",
+    journal = {Biochemical Journal},
+    volume = {478},
+    number = {24},
+    pages = {4169-4185},
+    year = {2021},
+    month = {12},
+    abstract = "{We describe new tools for the processing of electron cryo-microscopy (cryo-EM) images in the fourth major release of the RELION software. In particular, we introduce VDAM, a variable-metric gradient descent algorithm with adaptive moments estimation, for image refinement; a convolutional neural network for unsupervised selection of 2D classes; and a flexible framework for the design and execution of multiple jobs in pre-defined workflows. In addition, we present a stand-alone utility called MDCatch that links the execution of jobs within this framework with metadata gathering during microscope data acquisition. The new tools are aimed at providing fast and robust procedures for unsupervised cryo-EM structure determination, with potential applications for on-the-fly processing and the development of flexible, high-throughput structure determination pipelines. We illustrate their potential on 12 publicly available cryo-EM data sets.}",
+    issn = {0264-6021},
+    doi = {10.1042/BCJ20210708},
+    url = {https://doi.org/10.1042/BCJ20210708},
+    eprint = {https://portlandpress.com/biochemj/article-pdf/478/24/4169/926478/bcj-2021-0708.pdf},
+}
+
+@article{cryosparc, %TODO rename to punjani2017
+    author = {Punjani, Ali and Rubinstein, John and Fleet, David and Brubaker, Marcus},
+    year = {2017},
+    month = {02},
+    pages = {},
+    title = {cryoSPARC: algorithms for rapid unsupervised cryo-EM structure determination},
+    volume = {14},
+    journal = {Nature Methods},
+    doi = {10.1038/nmeth.4169}
+}
+
+@article {grigorieff2018,
+    article_type = {journal},
+    title = {\textit{cis}TEM, user-friendly software for single-particle image processing},
+    author = {Grant, Timothy and Rohou, Alexis and Grigorieff, Nikolaus},
+    editor = {Egelman, Edward H},
+    volume = 7,
+    year = 2018,
+    month = {03},
+    pub_date = {2018-03-07},
+    pages = {e35383},
+    citation = {eLife 2018;7:e35383},
+    doi = {10.7554/eLife.35383},
+    url = {https://doi.org/10.7554/eLife.35383},
+    abstract = {We have developed new open-source software called \textit{cis}TEM (computational imaging system for transmission electron microscopy) for the processing of data for high-resolution electron cryo-microscopy and single-particle averaging. \textit{cis}TEM features a graphical user interface that is used to submit jobs, monitor their progress, and display results. It implements a full processing pipeline including movie processing, image defocus determination, automatic particle picking, 2D classification, ab-initio 3D map generation from random parameters, 3D classification, and high-resolution refinement and reconstruction. Some of these steps implement newly-developed algorithms; others were adapted from previously published algorithms. The software is optimized to enable processing of typical datasets (2000 micrographs, 200 k – 300 k particles) on a high-end, CPU-based workstation in half a day or less, comparable to GPU-accelerated processing. Jobs can also be scheduled on large computer clusters using flexible run profiles that can be adapted for most computing environments. \textit{cis}TEM is available for download from cistem.org.},
+    keywords = {cryo-EM, image analysis, software, electron microscopy, cistem, single-particle analysis},
+    journal = {eLife},
+    issn = {2050-084X},
+    publisher = {eLife Sciences Publications, Ltd},
+}
+
+@article{sorzano2004,
+    title = {XMIPP: a new generation of an open-source image processing package for electron microscopy},
+    journal = {Journal of Structural Biology},
+    volume = {148},
+    number = {2},
+    pages = {194-204},
+    year = {2004},
+    issn = {1047-8477},
+    doi = {https://doi.org/10.1016/j.jsb.2004.06.006},
+    url = {https://www.sciencedirect.com/science/article/pii/S1047847704001261},
+    author = {C.O.S. Sorzano and R. Marabini and J. Velázquez-Muriel and J.R. Bilbao-Castro and S.H.W. Scheres and J.M. Carazo and A. Pascual-Montano},
+    keywords = {Electron microscopy, Single particles, Software packages, Image processing, 3D reconstruction},
+    abstract = {X-windows based microscopy image processing package (Xmipp) is a specialized suit of image processing programs, primarily aimed at obtaining the 3D reconstruction of biological specimens from large sets of projection images acquired by transmission electron microscopy. This public-domain software package was introduced to the electron microscopy field eight years ago, and since then it has changed drastically. New methodologies for the analysis of single-particle projection images have been added to classification, contrast transfer function correction, angular assignment, 3D reconstruction, reconstruction of crystals, etc. In addition, the package has been extended with functionalities for 2D crystal and electron tomography data. Furthermore, its current implementation in C++, with a highly modular design of well-documented data structures and functions, offers a convenient environment for the development of novel algorithms. In this paper, we present a general overview of a new generation of Xmipp that has been re-engineered to maximize flexibility and modularity, potentially facilitating its integration in future standardization efforts in the field. Moreover, by focusing on those developments that distinguish Xmipp from other packages available, we illustrate its added value to the electron microscopy community.}
+}
+
+@article{shaikh2008,
+    author = {Shaikh, Tanvir and Gao, Haixiao and Baxter, William and Asturias, Francisco and Boisset, Nicolas and Leith, Ardean and Frank, Joachim},
+    year = {2008},
+    month = {02},
+    pages = {1941-74},
+    title = {SPIDER image processing for single-particle reconstruction of biological macromolecules from electron micrographs},
+    volume = {3},
+    journal = {Nature protocols},
+    doi = {10.1038/nprot.2008.156}
+}
+
+@article{ludke2000,
+    author = {Ludtke, Steven and Baldwin, Philip and Chiu, Wah},
+    year = {2000},
+    month = {01},
+    pages = {82-97},
+    title = {EMAN: Semiautomated Software for High-Resolution Single-Particle Reconstructions},
+    volume = {128},
+    journal = {Journal of structural biology},
+    doi = {10.1006/jsbi.1999.4174}
+}
+
+@article{strelak2021a,
+    AUTHOR = {Střelák, David and Filipovič, Jiří and Jiménez-Moreno, Amaya and Carazo, Jose María and Sánchez Sorzano, Carlos Óscar},
+    TITLE = {FlexAlign: An Accurate and Fast Algorithm for Movie Alignment in Cryo-Electron Microscopy},
+    JOURNAL = {Electronics},
+    VOLUME = {9},
+    YEAR = {2020},
+    NUMBER = {6},
+    ARTICLE-NUMBER = {1040},
+    URL = {https://www.mdpi.com/2079-9292/9/6/1040},
+    ISSN = {2079-9292},
+    ABSTRACT = {Cryogenic Electron Microscopy (Cryo-EM) has been established as one of the key players in Structural Biology. It can reconstruct a 3D model of the sample at the near-atomic resolution, which led to a Method of the year award by Nature, and the Nobel Prize in 2017. With the growing number of facilities, faster microscopes, and new imaging techniques, new algorithms are needed to process the so-called movies data produced by the microscopes in real-time, while preserving a high resolution and maximum of additional information. In this article, we present a new algorithm used for movie alignment, called FlexAlign. FlexAlign is able to correctly compensate for the shift produced during the movie acquisition on-the-fly, using the current generation of hardware. The algorithm performs a global and elastic local registration of the movie frames using Cross-Correlation and B-spline interpolation for high precision. We show that our execution time is compatible with real-time correction and that we preserve the high-resolution information up to high frequency.},
+    DOI = {10.3390/electronics9061040}
+}
+
+@article{strelak2021b,
+    AUTHOR = {Strelak, David and Jiménez-Moreno, Amaya and Vilas, José L. and Ramírez-Aportela, Erney and Sánchez-García, Ruben and Maluenda, David and Vargas, Javier and Herreros, David and Fernández-Giménez, Estrella and de Isidro-Gómez, Federico P. and Horacek, Jan and Myska, David and Horacek, Martin and Conesa, Pablo and Fonseca-Reyna, Yunior C. and Jiménez, Jorge and Martínez, Marta and Harastani, Mohamad and Jonić, Slavica and Filipovic, Jiri and Marabini, Roberto and Carazo, José M. and Sorzano, Carlos O. S.},
+    TITLE = {Advances in Xmipp for Cryo–Electron Microscopy: From Xmipp to Scipion},
+    JOURNAL = {Molecules},
+    VOLUME = {26},
+    YEAR = {2021},
+    NUMBER = {20},
+    ARTICLE-NUMBER = {6224},
+    URL = {https://www.mdpi.com/1420-3049/26/20/6224},
+    PubMedID = {34684805},
+    ISSN = {1420-3049},
+    ABSTRACT = {Xmipp is an open-source software package consisting of multiple programs for processing data originating from electron microscopy and electron tomography, designed and managed by the Biocomputing Unit of the Spanish National Center for Biotechnology, although with contributions from many other developers over the world. During its 25 years of existence, Xmipp underwent multiple changes and updates. While there were many publications related to new programs and functionality added to Xmipp, there is no single publication on the Xmipp as a package since 2013. In this article, we give an overview of the changes and new work since 2013, describe technologies and techniques used during the development, and take a peek at the future of the package.},
+    DOI = {10.3390/molecules26206224}
+}
+
+@article{delarosa2016,
+  title={Scipion: A software framework toward integration, reproducibility and validation in 3D electron microscopy.},
+  author={Jos{\'e} Miguel de la Rosa-Trev{\'i}n and Adri{\'a}n Quintana and Laura del Ca{\~n}o and A Zald{\'i}var and Ignacio Foche and Jos{\'e} Gutierrez and Josu{\'e} G{\'o}mez-Blanco and Jordi Burguet-Castell and Jes{\'u}s Cuenca-Alba and Vahid Abrishami and Javier Vargas and Joaqu{\'i}n Ot{\'o}n and Grigory Sharov and Jose Luis Vilas and J. Pamos Navas and Pablo Conesa and M Kazemi and Roberto Marabini and Carlos Oscar S{\'a}nchez Sorzano and JM Carazo},
+  journal={Journal of structural biology},
+  year={2016},
+  volume={195 1},
+  pages={93-9}
+}
+
+@article{jimenezdelamorena2021,
+    title = {ScipionTomo: Towards cryo-electron tomography software integration, reproducibility, and validation},
+    journal = {Journal of Structural Biology},
+    volume = {214},
+    number = {3},
+    pages = {107872},
+    year = {2022},
+    issn = {1047-8477},
+    doi = {https://doi.org/10.1016/j.jsb.2022.107872},
+    url = {https://www.sciencedirect.com/science/article/pii/S1047847722000429},
+    author = {J. {Jiménez de la Morena} and P. Conesa and Y.C. Fonseca and F.P. {de Isidro-Gómez} and D. Herreros and E. Fernández-Giménez and D. Strelak and E. Moebel and T.O. Buchholz and F. Jug and A. Martinez-Sanchez and M. Harastani and S. Jonic and J.J. Conesa and A. Cuervo and P. Losana and I. Sánchez and M. Iceta and L. {del Cano} and M. Gragera and R. Melero and G. Sharov and D. Castaño-Díez and A. Koster and J.G. Piccirillo and J.L. Vilas and J. Otón and R. Marabini and C.O.S. Sorzano and J.M. Carazo},
+    abstract = {Image processing in cryogenic electron tomography (cryoET) is currently at a similar state as Single Particle Analysis (SPA) in cryogenic electron microscopy (cryoEM) was a few years ago. Its data processing workflows are far from being well defined and the user experience is still not smooth. Moreover, file formats of different software packages and their associated metadata are not standardized, mainly since different packages are developed by different groups, focusing on different steps of the data processing pipeline. The Scipion framework, originally developed for SPA (de la Rosa-Trevín et al., 2016), has a generic python workflow engine that gives it the versatility to be extended to other fields, as demonstrated for model building (Martínez et al., 2020). In this article, we provide an extension of Scipion based on a set of tomography plugins (referred to as ScipionTomo hereafter), with a similar purpose: to allow users to be focused on the data processing and analysis instead of having to deal with multiple software installation issues and the inconvenience of switching from one to another, converting metadata files, managing possible incompatibilities, scripting (writing a simple program in a language that the computer must convert to machine language each time the program is run), etcetera. Additionally, having all the software available in an integrated platform allows comparing the results of different algorithms trying to solve the same problem. In this way, the commonalities and differences between estimated parameters shed light on which results can be more trusted than others. ScipionTomo is developed by a collaborative multidisciplinary team composed of Scipion team engineers, structural biologists, and in some cases, the developers whose software packages have been integrated. It is open to anyone in the field willing to contribute to this project. The result is a framework extension that combines the acquired knowledge of Scipion developers in close collaboration with third-party developers, and the on-demand design of functionalities requested by beta testers applying this solution to actual biological problems.}
+}
+
+@article{chen2013,
+    title = {High-resolution noise substitution to measure overfitting and validate resolution in 3D structure determination by single particle electron cryomicroscopy},
+    journal = {Ultramicroscopy},
+    volume = {135},
+    pages = {24-35},
+    year = {2013},
+    issn = {0304-3991},
+    doi = {https://doi.org/10.1016/j.ultramic.2013.06.004},
+    url = {https://www.sciencedirect.com/science/article/pii/S0304399113001472},
+    author = {Shaoxia Chen and Greg McMullan and Abdul R. Faruqi and Garib N. Murshudov and Judith M. Short and Sjors H.W. Scheres and Richard Henderson},
+    keywords = {Single particle, Electron cryomicroscopy, Validation, Resolution, Overfitting, Beta-galactosidase},
+    abstract = {Three-dimensional (3D) structure determination by single particle electron cryomicroscopy (cryoEM) involves the calculation of an initial 3D model, followed by extensive iterative improvement of the orientation determination of the individual particle images and the resulting 3D map. Because there is much more noise than signal at high resolution in the images, this creates the possibility of noise reinforcement in the 3D map, which can give a false impression of the resolution attained. The balance between signal and noise in the final map at its limiting resolution depends on the image processing procedure and is not easily predicted. There is a growing awareness in the cryoEM community of how to avoid such over-fitting and over-estimation of resolution. Equally, there has been a reluctance to use the two principal methods of avoidance because they give lower resolution estimates, which some people believe are too pessimistic. Here we describe a simple test that is compatible with any image processing protocol. The test allows measurement of the amount of signal and the amount of noise from overfitting that is present in the final 3D map. We have applied the method to two different sets of cryoEM images of the enzyme beta-galactosidase using several image processing packages. Our procedure involves substituting the Fourier components of the initial particle image stack beyond a chosen resolution by either the Fourier components from an adjacent area of background, or by simple randomisation of the phases of the particle structure factors. This substituted noise thus has the same spectral power distribution as the original data. Comparison of the Fourier Shell Correlation (FSC) plots from the 3D map obtained using the experimental data with that from the same data with high-resolution noise (HR-noise) substituted allows an unambiguous measurement of the amount of overfitting and an accompanying resolution assessment. A simple formula can be used to calculate an unbiased FSC from the two curves, even when a substantial amount of overfitting is present. The approach is software independent. The user is therefore completely free to use any established method or novel combination of methods, provided the HR-noise test is carried out in parallel. Applying this procedure to cryoEM images of beta-galactosidase shows how overfitting varies greatly depending on the procedure, but in the best case shows no overfitting and a resolution of ~6Å. (382 words)}
+}
+
+@article{dubach2020,
+    author = {Dubach, Victor and Guskov, Albert},
+    year = {2020},
+    month = {07},
+    pages = {},
+    title = {The Resolution in X-ray Crystallography and Single-Particle Cryogenic Electron Microscopy},
+    volume = {10},
+    journal = {Crystals},
+    doi = {10.3390/cryst10070580}
+}
+
+@article{sorzano2022,
+    author = "Sorzano, C. O. S. and Jim{\'{e}}nez-Moreno, A. and Maluenda, D. and Mart{\'\i}nez, M. and Ram{\'\i}rez-Aportela, E. and Krieger, J. and Melero, R. and Cuervo, A. and Conesa, J. and Filipovic, J. and Conesa, P. and del Ca{\~{n}}o, L. and Fonseca, Y. C. and Jim{\'{e}}nez-de la Morena, J. and Losana, P. and S{\'{a}}nchez-Garc{\'\i}a, R. and Strelak, D. and Fern{\'{a}}ndez-Gim{\'{e}}nez, E. and de Isidro-G{\'{o}}mez, F. P. and Herreros, D. and Vilas, J. L. and Marabini, R. and Carazo, J. M.",
+    title = "{On bias, variance, overfitting, gold standard and consensus in single-particle analysis by cryo-electron microscopy}",
+    journal = "Acta Crystallographica Section D",
+    year = "2022",
+    volume = "78",
+    number = "4",
+    pages = "410--423",
+    month = "04",
+    doi = {10.1107/S2059798322001978},
+    url = {https://doi.org/10.1107/S2059798322001978},
+    abstract = {Cryo-electron microscopy (cryoEM) has become a well established technique to elucidate the 3D structures of biological macromolecules. Projection images from thousands of macromolecules that are assumed to be structurally identical are combined into a single 3D map representing the Coulomb potential of the macromolecule under study. This article discusses possible caveats along the image-processing path and how to avoid them to obtain a reliable 3D structure. Some of these problems are very well known in the community. These may be referred to as sample-related (such as specimen denaturation at interfaces or non-uniform projection geometry leading to underrepresented projection directions). The rest are related to the algorithms used. While some have been discussed in depth in the literature, such as the use of an incorrect initial volume, others have received much less attention. However, they are fundamental in any data-analysis approach. Chiefly among them, instabilities in estimating many of the key parameters that are required for a correct 3D reconstruction that occur all along the processing workflow are referred to, which may significantly affect the reliability of the whole process. In the field, the term overfitting has been coined to refer to some particular kinds of artifacts. It is argued that overfitting is a statistical bias in key parameter-estimation steps in the 3D reconstruction process, including intrinsic algorithmic bias. It is also shown that common tools (Fourier shell correlation) and strategies (gold standard) that are normally used to detect or prevent overfitting do not fully protect against it. Alternatively, it is proposed that detecting the bias that leads to overfitting is much easier when addressed at the level of parameter estimation, rather than detecting it once the particle images have been combined into a 3D map. Comparing the results from multiple algorithms (or at least, independent executions of the same algorithm) can detect parameter bias. These multiple executions could then be averaged to give a lower variance estimate of the underlying parameters.},
+    keywords = {single-particle analysis, cryo-electron microscopy, parameter estimation, image processing, bias, variance, overfitting, gold standard},
+}
+
+@article{sorzano2010,
+    title = {A clustering approach to multireference alignment of single-particle projections in electron microscopy},
+    journal = {Journal of Structural Biology},
+    volume = {171},
+    number = {2},
+    pages = {197-206},
+    year = {2010},
+    issn = {1047-8477},
+    doi = {https://doi.org/10.1016/j.jsb.2010.03.011},
+    url = {https://www.sciencedirect.com/science/article/pii/S1047847710000882},
+    author = {C.O.S. Sorzano and J.R. Bilbao-Castro and Y. Shkolnisky and M. Alcorlo and R. Melero and G. Caffarena-Fernández and M. Li and G. Xu and R. Marabini and J.M. Carazo},
+    keywords = {Single-particle analysis, 2D analysis, Multireference analysis, Electron microscopy},
+    abstract = {Two-dimensional analysis of projections of single-particles acquired by an electron microscope is a useful tool to help identifying the different kinds of projections present in a dataset and their different projection directions. Such analysis is also useful to distinguish between different kinds of particles or different particle conformations. In this paper we introduce a new algorithm for performing two-dimensional multireference alignment and classification that is based on a Hierarchical clustering approach using correntropy (instead of the more traditional correlation) and a modified criterion for the definition of the clusters specially suited for cases in which the Signal-to-Noise Ratio of the differences between classes is low. We show that our algorithm offers an improved sensitivity over current methods in use for distinguishing between different projection orientations and different particle conformations. This algorithm is publicly available through the software package Xmipp.}
+}
+
+@article{sorzano2017a,
+    title = {A review of resolution measures and related aspects in 3D Electron Microscopy},
+    journal = {Progress in Biophysics and Molecular Biology},
+    volume = {124},
+    pages = {1-30},
+    year = {2017},
+    issn = {0079-6107},
+    doi = {https://doi.org/10.1016/j.pbiomolbio.2016.09.005},
+    url = {https://www.sciencedirect.com/science/article/pii/S0079610716300037},
+    author = {C.O.S. Sorzano and J. Vargas and J. Otón and V. Abrishami and J.M. {de la Rosa-Trevín} and J. Gómez-Blanco and J.L. Vilas and R. Marabini and J.M. Carazo},
+    abstract = {Fourier Shell Correlation, Spectral Signal-to-Noise Ratio, Fourier Neighbour Correlation, and Differential Phase Residual are different measures that have been proposed over time to determine the spatial resolution achieved by a certain 3D reconstruction. Estimates of B-factors to describe the reduction in signal-to-noise ratio with increasing resolution is also a useful parameter. All these concepts are interrelated and different thresholds have been given for each one of them. However, the problem of resolution assessment in 3DEM is still far from settled and preferences are normally adopted in order to choose the “correct” threshold. In this paper we review the different concepts, their theoretical foundations and the derivation of their statistical distributions (the basis for establishing sensible thresholds). We provide theoretical justifications for some common practices in the field for which a formal justification was missing. We also analyze the relationship between SSNR and B-factors, the electron dose needed for achieving a given contrast and resolution, the number of images required, etc. Finally, we review the consequences for the number of particles needed to achieve a certain resolution and how to analyze the Signal-to-Noise Ratio for a sequence of imaging operations.}
+}
+
+@article{sorzano2017b,
+    author = {Sorzano, Carlos and Vargas, Javier and Otón, Joaquín and Rosa-Trevín, Jose and Vilas, Jose and Kazemi, Mohsen and Melero, Roberto and del Caño, Lidia and Cuenca, Julliana and Conesa, Pablo and Gomez-Blanco, Josue and Marabini, R. and Carazo, J.},
+    year = {2017},
+    month = {09},
+    pages = {1-17},
+    title = {A Survey of the Use of Iterative Reconstruction Algorithms in Electron Microscopy},
+    volume = {2017},
+    journal = {BioMed Research International},
+    doi = {10.1155/2017/6482567}
+}
+
+@article{unser2005,
+    title = {Spectral signal-to-noise ratio and resolution assessment of 3D reconstructions},
+    journal = {Journal of Structural Biology},
+    volume = {149},
+    number = {3},
+    pages = {243-255},
+    year = {2005},
+    issn = {1047-8477},
+    doi = {https://doi.org/10.1016/j.jsb.2004.10.011},
+    url = {https://www.sciencedirect.com/science/article/pii/S1047847704002047},
+    author = {M. Unser and C.O.S. Sorzano and P. Thévenaz and S. Jonić and C. El-Bez and S. {De Carlo} and J.F. Conway and B.L. Trus},
+    abstract = {Measuring the quality of three-dimensional (3D) reconstructed biological macromolecules by transmission electron microscopy is still an open problem. In this article, we extend the applicability of the spectral signal-to-noise ratio (SSNR) to the evaluation of 3D volumes reconstructed with any reconstruction algorithm. The basis of the method is to measure the consistency between the data and a corresponding set of reprojections computed for the reconstructed 3D map. The idiosyncrasies of the reconstruction algorithm are taken explicitly into account by performing a noise-only reconstruction. This results in the definition of a 3D SSNR which provides an objective indicator of the quality of the 3D reconstruction. Furthermore, the information to build the SSNR can be used to produce a volumetric SSNR (VSSNR). Our method overcomes the need to divide the data set in two. It also provides a direct measure of the performance of the reconstruction algorithm itself; this latter information is typically not available with the standard resolution methods which are primarily focused on reproducibility alone.}
+}
+
+@article{strelak2019,
+    author = {David Střelák and Carlos Óscar S Sorzano and José María Carazo and Jiří Filipovič},
+    title ={A GPU acceleration of 3-D Fourier reconstruction in cryo-EM},
+    journal = {The International Journal of High Performance Computing Applications},
+    volume = {33},
+    number = {5},
+    pages = {948-959},
+    year = {2019},
+    doi = {10.1177/1094342019832958},
+    URL = {https://doi.org/10.1177/1094342019832958},
+    eprint = {https://doi.org/10.1177/1094342019832958},
+    abstract = { Cryo-electron microscopy is a popular method for macromolecules structure determination. Reconstruction of a 3-D volume from raw data obtained from a microscope is highly computationally demanding. Thus, acceleration of the reconstruction has a great practical value. In this article, we introduce a novel graphics processing unit (GPU)-friendly algorithm for direct Fourier reconstruction, one of the main computational bottlenecks in the 3-D volume reconstruction pipeline for some experimental cases (particularly those with a large number of images and a high internal symmetry). Contrary to the state of the art, our algorithm uses a gather memory pattern, improving cache locality and removing race conditions in parallel writing into the 3-D volume. We also introduce a finely tuned CUDA implementation of our algorithm, using auto-tuning to search for a combination of optimization parameters maximizing performance on a given GPU architecture. Our CUDA implementation is integrated in widely used software Xmipp, version 3.19, reaching 11.4× speedup compared to the original parallel CPU implementation using GPU with comparable power consumption. Moreover, we have reached 31.7× speedup using four GPUs and 2.14×–5.96× speedup compared to optimized GPU implementation based on a scatter memory pattern. }
+}
+
+@article{herreros2021,
+    author = "Herreros, David and Lederman, Roy R. and Krieger, James and Jim{\'{e}}nez-Moreno, Amaya and Mart{\'\i}nez, Marta and My{\v{s}}ka, David and Strelak, David and Filipovic, Jiri and Bahar, Ivet and Carazo, Jose Maria and Sanchez, Carlos Oscar S.",
+    title = "{Approximating deformation fields for the analysis of continuous heterogeneity of biological macromolecules by 3D Zernike polynomials}",
+    journal = "IUCrJ",
+    year = "2021",
+    volume = "8",
+    number = "6",
+    pages = "992--1005",
+    month = "11",
+    doi = {10.1107/S2052252521008903},
+    url = {https://doi.org/10.1107/S2052252521008903},
+    abstract = {Structural biology has evolved greatly due to the advances introduced in fields like electron microscopy. This image-capturing technique, combined with improved algorithms and current data processing software, allows the recovery of different conformational states of a macromolecule, opening new possibilities for the study of its flexibility and dynamic events. However, the ensemble analysis of these different conformations, and in particular their placement into a common variable space in which the differences and similarities can be easily recognized, is not an easy matter. To simplify the analysis of continuous heterogeneity data, this work proposes a new automatic algorithm that relies on a mathematical basis defined over the sphere to estimate the deformation fields describing conformational transitions among different structures. Thanks to the approximation of these deformation fields, it is possible to describe the forces acting on the molecules due to the presence of different motions. It is also possible to represent and compare several structures in a low-dimensional mapping, which summarizes the structural characteristics of different states. All these analyses are integrated into a common framework, providing the user with the ability to combine them seamlessly. In addition, this new approach is a significant step forward compared with principal component analysis and normal mode analysis of cryo-electron microscopy maps, avoiding the need to select components or modes and producing localized analysis.},
+    keywords = {multi-dimensional scaling (MDS), 3D reconstruction and image processing, single-particle cryo-EM, spherical harmonics, Zernike polynomials, conformations},
+}
+
+@article{lyumkis2013,
+    title = {Likelihood-based classification of cryo-EM images using FREALIGN},
+    journal = {Journal of Structural Biology},
+    volume = {183},
+    number = {3},
+    pages = {377-388},
+    year = {2013},
+    issn = {1047-8477},
+    doi = {https://doi.org/10.1016/j.jsb.2013.07.005},
+    url = {https://www.sciencedirect.com/science/article/pii/S1047847713001858},
+    author = {Dmitry Lyumkis and Axel F. Brilot and Douglas L. Theobald and Nikolaus Grigorieff},
+    keywords = {Electron microscopy, Maximum likelihood, Classification, Single particle, Protein structure},
+    abstract = {We describe an implementation of maximum likelihood classification for single particle electron cryo-microscopy that is based on the FREALIGN software. Particle alignment parameters are determined by maximizing a joint likelihood that can include hierarchical priors, while classification is performed by expectation maximization of a marginal likelihood. We test the FREALIGN implementation using a simulated dataset containing computer-generated projection images of three different 70S ribosome structures, as well as a publicly available dataset of 70S ribosomes. The results show that the mixed strategy of the new FREALIGN algorithm yields performance on par with other maximum likelihood implementations, while remaining computationally efficient.}
+}
+
+@article{scheres2005,
+    title = {Maximum-likelihood Multi-reference Refinement for Electron Microscopy Images},
+    journal = {Journal of Molecular Biology},
+    volume = {348},
+    number = {1},
+    pages = {139-149},
+    year = {2005},
+    issn = {0022-2836},
+    doi = {https://doi.org/10.1016/j.jmb.2005.02.031},
+    url = {https://www.sciencedirect.com/science/article/pii/S0022283605001932},
+    author = {Sjors H.W. Scheres and Mikel Valle and Rafael Nuñez and Carlos O.S. Sorzano and Roberto Marabini and Gabor T. Herman and Jose-Maria Carazo},
+    keywords = {maximum-likelihood, multi-reference refinement, single-particles, 2D-alignment, classification},
+    abstract = {A maximum-likelihood approach to multi-reference image refinement is presented. In contrast to conventional cross-correlation refinement, the new approach includes a formal description of the noise, implying that it is especially suited to cases with low signal-to-noise ratios. Application of this approach to a cryo-electron microscopy dataset revealed two major classes for projections of simian virus 40 large T-antigen in complex with an asymmetric DNA-probe, containing the origin of simian virus 40 replication. Strongly bent projections of dodecamers showed density that may be attributed to the complexed double-stranded DNA, while almost straight projections revealed a twist in the relative orientation of the hexameric subunits. This new level of detail for large T-antigen projections was not detected using conventional techniques. For a negative stain dataset, maximum-likelihood refinement yielded results that were practically identical to those obtained using conventional multi-reference refinement. Results obtained using simulated data suggest that the efficiency of the maximum-likelihood approach may be further enhanced by explicitly incorporating the microscope contrast transfer function in the image formation model.}
+}
+
+@misc{levy2022,
+    doi = {10.48550/ARXIV.2203.08138},
+    url = {https://arxiv.org/abs/2203.08138},
+    author = {Levy, Axel and Poitevin, Frédéric and Martel, Julien and Nashed, Youssef and Peck, Ariana and Miolane, Nina and Ratner, Daniel and Dunne, Mike and Wetzstein, Gordon},
+    keywords = {Computer Vision and Pattern Recognition (cs.CV), Machine Learning (cs.LG), Biomolecules (q-bio.BM), FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Biological sciences, FOS: Biological sciences},
+    title = {CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images},
+    publisher = {arXiv},
+    year = {2022},
+    copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+@article{johnson2019,
+    title={Billion-scale similarity search with {GPUs}},
+    author={Johnson, Jeff and Douze, Matthijs and J{\'e}gou, Herv{\'e}},
+    journal={IEEE Transactions on Big Data},
+    volume={7},
+    number={3},
+    pages={535--547},
+    year={2019},
+    publisher={IEEE}
+}
+
+@article{jegou2011,
+    author={Jégou, Herve and Douze, Matthijs and Schmid, Cordelia},
+    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+    title={Product Quantization for Nearest Neighbor Search}, 
+    year={2011},
+    volume={33},
+    number={1},
+    pages={117-128},
+    doi={10.1109/TPAMI.2010.57}
+}
+
+@article{grigorieff2017,
+    title = {FREALIGN: High-resolution refinement of single particle structures},
+    journal = {Journal of Structural Biology},
+    volume = {157},
+    number = {1},
+    pages = {117-125},
+    year = {2007},
+    note = {Software tools for macromolecular microscopy},
+    issn = {1047-8477},
+    doi = {https://doi.org/10.1016/j.jsb.2006.05.004},
+    url = {https://www.sciencedirect.com/science/article/pii/S1047847706001699},
+    author = {Nikolaus Grigorieff},
+    keywords = {Image processing, Electron microscopy, Protein structure, FREALIGN},
+    abstract = {The refinement of three-dimensional reconstructions and correction for the contrast transfer function of the microscope are important steps in the determination of macromolecular structures by single particle electron microscopy. The algorithms implemented in the computer program FREALIGN are optimized to perform these tasks efficiently. A general overview and details on how to use FREALIGN are provided. The program is free and available for download on the author’s web page.}
+}
+
+@inproceedings{ge2013,
+    author={Ge, Tiezheng and He, Kaiming and Ke, Qifa and Sun, Jian},
+    booktitle={2013 IEEE Conference on Computer Vision and Pattern Recognition}, 
+    year={2013},
+    volume={},
+    number={},
+    pages={2946-2953},
+    doi={10.1109/CVPR.2013.379}
+}
+
+@article{iudin2022,
+    author = {Iudin, Andrii and Korir, Paul K and Somasundharam, Sriram and Weyand, Simone and Cattavitello, Cesare and Fonseca, Neli and Salih, Osman and Kleywegt, Gerard J and Patwardhan, Ardan},
+    title = "{EMPIAR: the Electron Microscopy Public Image Archive}",
+    journal = {Nucleic Acids Research},
+    volume = {51},
+    number = {D1},
+    pages = {D1503-D1511},
+    year = {2022},
+    month = {11},
+    abstract = "{Public archiving in structural biology is well established with the Protein Data Bank (PDB; wwPDB.org) catering for atomic models and the Electron Microscopy Data Bank (EMDB; emdb-empiar.org) for 3D reconstructions from cryo-EM experiments. Even before the recent rapid growth in cryo-EM, there was an expressed community need for a public archive of image data from cryo-EM experiments for validation, software development, testing and training. Concomitantly, the proliferation of 3D imaging techniques for cells, tissues and organisms using volume EM (vEM) and X-ray tomography (XT) led to calls from these communities to publicly archive such data as well. EMPIAR (empiar.org) was developed as a public archive for raw cryo-EM image data and for 3D reconstructions from vEM and XT experiments and now comprises over a thousand entries totalling over 2 petabytes of data. EMPIAR resources include a deposition system, entry pages, facilities to search, visualize and download datasets, and a REST API for programmatic access to entry metadata. The success of EMPIAR also poses significant challenges for the future in dealing with the very fast growth in the volume of data and in enhancing its reusability.}",
+    issn = {0305-1048},
+    doi = {10.1093/nar/gkac1062},
+    url = {https://doi.org/10.1093/nar/gkac1062},
+    eprint = {https://academic.oup.com/nar/article-pdf/51/D1/D1503/49645431/gkac1062.pdf},
+}
+
+@article {wong2014,
+    article_type = {journal},
+    title = {Cryo-EM structure of the \textit{Plasmodium falciparum} 80S ribosome bound to the anti-protozoan drug emetine},
+    author = {Wong, Wilson and Bai, Xiao-chen and Brown, Alan and Fernandez, Israel S and Hanssen, Eric and Condron, Melanie and Tan, Yan Hong and Baum, Jake and Scheres, Sjors HW},
+    editor = {Kühlbrandt, Werner},
+    volume = 3,
+    year = 2014,
+    month = {06},
+    pub_date = {2014-06-09},
+    pages = {e03080},
+    citation = {eLife 2014;3:e03080},
+    doi = {10.7554/eLife.03080},
+    url = {https://doi.org/10.7554/eLife.03080},
+    abstract = {Malaria inflicts an enormous burden on global human health. The emergence of parasite resistance to front-line drugs has prompted a renewed focus on the repositioning of clinically approved drugs as potential anti-malarial therapies. Antibiotics that inhibit protein translation are promising candidates for repositioning. We have solved the cryo-EM structure of the cytoplasmic ribosome from the human malaria parasite, \textit{Plasmodium falciparum}, in complex with emetine at 3.2 Å resolution. Emetine is an anti-protozoan drug used in the treatment of ameobiasis that also displays potent anti-malarial activity. Emetine interacts with the E-site of the ribosomal small subunit and shares a similar binding site with the antibiotic pactamycin, thereby delivering its therapeutic effect by blocking mRNA/tRNA translocation. As the first cryo-EM structure that visualizes an antibiotic bound to any ribosome at atomic resolution, this establishes cryo-EM as a powerful tool for screening and guiding the design of drugs that target parasite translation machinery.},
+    keywords = {malaria, \textit{Plasmodium falciparum}, ribosome, drug development, cryo-EM},
+    journal = {eLife},
+    issn = {2050-084X},
+    publisher = {eLife Sciences Publications, Ltd},
+}
+
+@article{bartesaghi2015,
+    doi = {10.1126/science.aab1576},
+    url = {https://doi.org/10.1126/science.aab1576},
+    year = {2015},
+    month = {06},
+    publisher = {American Association for the Advancement of Science ({AAAS})},
+    volume = {348},
+    number = {6239},
+    pages = {1147--1151},
+    author = {Alberto Bartesaghi and Alan Merk and Soojay Banerjee and Doreen Matthies and Xiongwu Wu and Jacqueline L. S. Milne and Sriram Subramaniam},
+    title = {2.2 A resolution cryo-{EM} structure of $\beta$-galactosidase in complex with a cell-permeant inhibitor},
+    journal = {Science}
+}
+
+@article{dang2019,
+    author = {Shangyu Dang  and Mark K. van Goor  and Daniel Asarnow  and YongQiang Wang  and David Julius  and Yifan Cheng  and Jenny van der Wijst },
+    title = {Structural insight into TRPV5 channel function and modulation},
+    journal = {Proceedings of the National Academy of Sciences},
+    volume = {116},
+    number = {18},
+    pages = {8869-8878},
+    year = {2019},
+    doi = {10.1073/pnas.1820323116},
+    URL = {https://www.pnas.org/doi/abs/10.1073/pnas.1820323116},
+    eprint = {https://www.pnas.org/doi/pdf/10.1073/pnas.1820323116},
+    abstract = {TRPV5 (transient receptor potential vanilloid 5) is a unique calcium-selective TRP channel essential for calcium homeostasis. Unlike other TRPV channels, TRPV5 and its close homolog, TRPV6, do not exhibit thermosensitivity or ligand-dependent activation but are constitutively open at physiological membrane potentials and modulated by calmodulin (CaM) in a calcium-dependent manner. Here we report high-resolution electron cryomicroscopy structures of truncated and full-length TRPV5 in lipid nanodiscs, as well as of a TRPV5 W583A mutant and TRPV5 in complex with CaM. These structures highlight the mechanism of calcium regulation and reveal a flexible stoichiometry of CaM binding to TRPV5.}
+}
+
+@article{tan2020,
+    title = {Cryo-EM Structures and Regulation of Arabinofuranosyltransferase AftD from Mycobacteria},
+    journal = {Molecular Cell},
+    volume = {78},
+    number = {4},
+    pages = {683-699.e11},
+    year = {2020},
+    issn = {1097-2765},
+    doi = {https://doi.org/10.1016/j.molcel.2020.04.014},
+    url = {https://www.sciencedirect.com/science/article/pii/S1097276520302562},
+    author = {Yong Zi Tan and Lei Zhang and José Rodrigues and Ruixiang Blake Zheng and Sabrina I. Giacometti and Ana L. Rosário and Brian Kloss and Venkata P. Dandey and Hui Wei and Richard Brunton and Ashleigh M. Raczkowski and Diogo Athayde and Maria João Catalão and Madalena Pimentel and Oliver B. Clarke and Todd L. Lowary and Margarida Archer and Michael Niederweis and Clinton S. Potter and Bridget Carragher and Filippo Mancia},
+    keywords = {glycosyltransferase, , lipomannan, lipoarabinomannan, arabinofuranose, membrane protein, nanodisc, single-particle cryo-electron microscopy, acyl carrier protein},
+    abstract = {Summary
+    Mycobacterium tuberculosis causes tuberculosis, a disease that kills over 1 million people each year. Its cell envelope is a common antibiotic target and has a unique structure due, in part, to two lipidated polysaccharides—arabinogalactan and lipoarabinomannan. Arabinofuranosyltransferase D (AftD) is an essential enzyme involved in assembling these glycolipids. We present the 2.9-Å resolution structure of M. abscessus AftD, determined by single-particle cryo-electron microscopy. AftD has a conserved GT-C glycosyltransferase fold and three carbohydrate-binding modules. Glycan array analysis shows that AftD binds complex arabinose glycans. Additionally, AftD is non-covalently complexed with an acyl carrier protein (ACP). 3.4- and 3.5-Å structures of a mutant with impaired ACP binding reveal a conformational change, suggesting that ACP may regulate AftD function. Mutagenesis experiments using a conditional knockout constructed in M. smegmatis confirm the essentiality of the putative active site and the ACP binding for AftD function.}
+}
+
+@article{landis2007,
+    author = {Markley, Landis and Cheng, Yang and Crassidis, John and Oshman, Yaakov},
+    year = {2007},
+    month = {07},
+    pages = {1193-1196},
+    title = {Averaging Quaternions},
+    volume = {30},
+    journal = {Journal of Guidance, Control, and Dynamics},
+    doi = {10.2514/1.28949}
+}
+
+@article{scheres2012,
+    author = {Scheres, Sjors and Chen, Shaoxia},
+    year = {2012},
+    month = {07},
+    pages = {853-4},
+    title = {Prevention of overfitting in cryo-EM structure determination},
+    volume = {9},
+    journal = {Nature methods},
+    doi = {10.1038/nmeth.2115}
+}
+
+@article{sudakov2005, 
+    title={MaxCut in H-Free Graphs}, 
+    volume={14}, 
+    DOI={10.1017/S0963548305007017}, 
+    number={5–6}, 
+    journal={Combinatorics, Probability and Computing}, 
+    author={ALON, NOGA and KRIVELEVICH, MICHAEL and SUDAKOV, BENNY}, 
+    year={2005}, 
+    pages={629–647}
+}
+
+@article{kurita2019,
+  title={Principal component analysis (PCA)},
+  author={Kurita, Takio},
+  journal={Computer Vision: A Reference Guide},
+  pages={1--4},
+  year={2019},
+  publisher={Springer}
+}
+
+@article{karamizadeh2013,
+  title={An overview of principal component analysis},
+  author={Karamizadeh, Sasan and Abdullah, Shahidan M and Manaf, Azizah A and Zamani, Mazdak and Hooman, Alireza},
+  journal={Journal of Signal and Information Processing},
+  volume={4},
+  number={3B},
+  pages={173},
+  year={2013},
+  publisher={Scientific Research Publishing}
+}
+
+@incollection{scheres2016,
+    title = {Chapter Six - Processing of Structurally Heterogeneous Cryo-EM Data in RELION},
+    editor = {R.A. Crowther},
+    series = {Methods in Enzymology},
+    publisher = {Academic Press},
+    volume = {579},
+    pages = {125-157},
+    year = {2016},
+    booktitle = {The Resolution Revolution: Recent Advances In cryoEM},
+    issn = {0076-6879},
+    doi = {https://doi.org/10.1016/bs.mie.2016.04.012},
+    url = {https://www.sciencedirect.com/science/article/pii/S0076687916300301},
+    author = {S.H.W. Scheres},
+    keywords = {RELION, Maximum likelihood, Classification, Cryo-electron microscopy, Single-particle analysis, Structural heterogeneity, Protein dynamics, Image processing},
+    abstract = {This chapter describes algorithmic advances in the RELION software, and how these are used in high-resolution cryo-electron microscopy (cryo-EM) structure determination. Since the presence of projections of different three-dimensional structures in the dataset probably represents the biggest challenge in cryo-EM data processing, special emphasis is placed on how to deal with structurally heterogeneous datasets. As such, this chapter aims to be of practical help to those who wish to use RELION in their cryo-EM structure determination efforts.}
+}
+
+@article{jonic2016,
+    title = {Cryo-electron Microscopy Analysis of Structurally Heterogeneous Macromolecular Complexes},
+    journal = {Computational and Structural Biotechnology Journal},
+    volume = {14},
+    pages = {385-390},
+    year = {2016},
+    issn = {2001-0370},
+    doi = {https://doi.org/10.1016/j.csbj.2016.10.002},
+    url = {https://www.sciencedirect.com/science/article/pii/S2001037016300551},
+    author = {Slavica Jonić},
+    keywords = {Cryo-electron microscopy, Single particle analysis, Macromolecular complexes, Heterogeneity, Structure, Flexibility, Conformational changes, Dynamics},
+    abstract = {Cryo-electron microscopy (cryo-EM) has for a long time been a technique of choice for determining structure of large and flexible macromolecular complexes that were difficult to study by other experimental techniques such as X-ray crystallography or nuclear magnetic resonance. However, a fast development of instruments and software for cryo-EM in the last decade has allowed that a large range of complexes can be studied by cryo-EM, and that their structures can be obtained at near-atomic resolution, including the structures of small complexes (e.g., membrane proteins) whose size was earlier an obstacle to cryo-EM. Image analysis to identify multiple coexisting structures in the same specimen (multiconformation reconstruction) is now routinely done both to solve structures at near-atomic resolution and to study conformational dynamics. Methods for multiconformation reconstruction and latest examples of their applications are the focus of this review.}
+}
+
+@article{gomezblanco2022,
+    title = {Hierarchical autoclassification of cryo-EM samples and macromolecular energy landscape determination},
+    journal = {Computer Methods and Programs in Biomedicine},
+    volume = {216},
+    pages = {106673},
+    year = {2022},
+    issn = {0169-2607},
+    doi = {https://doi.org/10.1016/j.cmpb.2022.106673},
+    url = {https://www.sciencedirect.com/science/article/pii/S016926072200058X},
+    author = {J. Gomez-Blanco and S. Kaur and M. Strauss and J. Vargas},
+    abstract = {Background and objective
+    Cryo-electron microscopy using single particle analysis is a powerful technique for obtaining 3D reconstructions of macromolecules in near native conditions. One of its major advances is its capacity to reveal conformations of dynamic molecular complexes. Most popular and successful current approaches to analyzing heterogeneous complexes are founded on Bayesian inference. However, these 3D classification methods require the tuning of specific parameters by the user and the use of complicated 3D re-classification procedures for samples affected by extensive heterogeneity. Thus, the success of these approaches highly depends on the user experience. We introduce a robust approach to identify many different conformations presented in a cryo-EM dataset based on Bayesian inference through Relion classification methods that does not require tuning of parameters and reclassification strategies.
+    Methods
+    The algorithm allows both 2D and 3D classification and is based on a hierarchical clustering approach that runs automatically without requiring typical inputs, such as the number of conformations present in the dataset or the required classification iterations. This approach is applied to robustly determine the energy landscapes of macromolecules.
+    Results
+    We tested the performance of the methods proposed here using four different datasets, comprising structurally homogeneous and highly heterogeneous cases. In all cases, the approach provided excellent results. The routines are publicly available as part of the CryoMethods plugin included in the Scipion package.
+    Conclusions
+    Our results show that the proposed method can be used to align and classify homogeneous and heterogeneous datasets without requiring previous alignment information or any prior knowledge about the number of co-existing conformations. The approach can be used for both 2D and 3D autoclassification and only requires an initial volume. In addition, the approach is robust to the “attractor” problem providing many different conformations/views for samples affected by extensive heterogeneity. The obtained 3D classes can render high resolution 3D structures, while the obtained energy landscapes can be used to determine structural trajectories.}
+}
+
+@article{penczek2006,
+    title = {Estimation of variance in single-particle reconstruction using the bootstrap technique},
+    journal = {Journal of Structural Biology},
+    volume = {154},
+    number = {2},
+    pages = {168-183},
+    year = {2006},
+    issn = {1047-8477},
+    doi = {https://doi.org/10.1016/j.jsb.2006.01.003},
+    url = {https://www.sciencedirect.com/science/article/pii/S1047847706000219},
+    author = {Pawel A. Penczek and Chao Yang and Joachim Frank and Christian M.T. Spahn},
+    keywords = {Single-particle reconstruction, Bootstrap, Electron microscopy},
+    abstract = {Density maps of a molecule obtained by single-particle reconstruction from thousands of molecule projections exhibit strong changes in local definition and reproducibility, as a consequence of conformational variability of the molecule and non-stoichiometry of ligand binding. These changes complicate the interpretation of density maps in terms of molecular structure. A three-dimensional (3-D) variance map provides an effective tool to assess the structural definition in each volume element. In this work, the different contributions to the 3-D variance in a single-particle reconstruction are discussed, and an effective method for the estimation of the 3-D variance map is proposed, using a bootstrap technique of sampling. Computations with test data confirm the viability, computational efficiency, and accuracy of the method under conditions encountered in practical circumstances.}
+}
+
+@article{vuilletmot2023,
+    title = {MDSPACE: Extracting Continuous Conformational Landscapes from Cryo-EM Single Particle Datasets Using 3D-to-2D Flexible Fitting based on Molecular Dynamics Simulation},
+    journal = {Journal of Molecular Biology},
+    volume = {435},
+    number = {9},
+    pages = {167951},
+    year = {2023},
+    note = {New Frontier of Cryo-Electron Microscopy Technology},
+    issn = {0022-2836},
+    doi = {https://doi.org/10.1016/j.jmb.2023.167951},
+    url = {https://www.sciencedirect.com/science/article/pii/S0022283623000074},
+    author = {Rémi Vuillemot and Alex Mirzaei and Mohamad Harastani and Ilyes Hamitouche and Léo Fréchin and Bruno P. Klaholz and Osamu Miyashita and Florence Tama and Isabelle Rouiller and Slavica Jonic},
+    keywords = {cryo electron microscopy (cryo-EM), molecular dynamics simulation (MD simulation), continuous conformational variability, 3D-to-2D flexible fitting, conformational landscapes},
+    abstract = {This article presents an original approach for extracting atomic-resolution landscapes of continuous conformational variability of biomolecular complexes from cryo electron microscopy (cryo-EM) single particle images. This approach is based on a new 3D-to-2D flexible fitting method, which uses molecular dynamics (MD) simulation and is embedded in an iterative conformational-landscape refinement scheme. This new approach is referred to as MDSPACE, which stands for Molecular Dynamics simulation for Single Particle Analysis of Continuous Conformational hEterogeneity. The article describes the MDSPACE approach and shows its performance using synthetic and experimental datasets.}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EMPIAR
+%
+@misc{empiar10028,
+    doi = {10.6019/empiar-10028},
+    url = {https://doi.org/10.6019/empiar-10028},
+    year = {2015},
+    month = may,
+    publisher = {{EMBL}-{EBI}},
+    author = {Wong, Wilson and Bai, Xiao-chen and Brown, Alan and Fernandez, Israel S and Hanssen, Eric and Condron, Melanie and Tan, Yan Hong and Baum, Jake and Scheres, Sjors HW},
+    title = {Cryo-{EM} structure of the Plasmodium falciparum 80S ribosome bound to the anti-protozoan drug emetine}
+}
+
+@misc{empiar10061,
+    doi = {10.6019/empiar-10061},
+    url = {https://doi.org/10.6019/empiar-10061},
+    year = {2016},
+    month = {04},
+    publisher = {{EMBL}-{EBI}},
+    author = {Alberto Bartesaghi and Alan Merk and Soojay Banerjee and Doreen Matthies and Xiongwu Wu and Jacqueline L. S. Milne and Sriram Subramaniam},
+    title = {Cryo-{EM} structure of $\beta$-galactosidase in complex with a cell-permeant inhibitor}
+}
+
+@misc{empiar10180,
+    doi = {10.6019/empiar-10180},
+    url = {https://doi.org/10.6019/empiar-10180},
+    year = {2017},
+    month = {05},
+    publisher = {{EMBL}-{EBI}},
+    author = {Nakane, Takanori and Scheres, Sjors H. W},
+    title = {Cryo-{EM} structure of a pre-catalytic spliceosome}
+}
+
+@misc{empiar10253,
+    doi = {10.6019/empiar-10253},
+    url = {https://doi.org/10.6019/empiar-10253},
+    year = {2019},
+    month = {02},
+    publisher = {{EMBL}-{EBI}},
+    author = {Shangyu Dang and Mark K. van Goor and Daniel Asarnow and YongQiang Wang and David Julius and Yifan Cheng and Jenny van der Wijst},
+    title = {Cryo-{EM} structure of TRPV5 full length in nanodisc}
+}
+
+@misc{empiar10256,
+    doi = {10.6019/empiar-10256},
+    url = {https://doi.org/10.6019/empiar-10256},
+    year = {2019},
+    month = {02},
+    publisher = {{EMBL}-{EBI}},
+    author = {Shangyu Dang and Mark K. van Goor and Daniel Asarnow and YongQiang Wang and David Julius and Yifan Cheng and Jenny van der Wijst},
+    title = {Cryo-{EM} structure of TRPV5 with calmodulin bound}
+}
+
+@misc{empiar10391,
+    doi = {10.6019/empiar-10391},
+    url = {https://doi.org/10.6019/empiar-10391},
+    year = {2020},
+    month = {05},
+    publisher = {{EMBL}-{EBI}},
+    author = {Yong Zi Tan and Lei Zhang and José Rodrigues and Ruixiang Blake Zheng and Sabrina I. Giacometti and Ana L. Rosário and Brian Kloss and Venkata P. Dandey and Hui Wei and Richard Brunton and Ashleigh M. Raczkowski and Diogo Athayde and Maria João Catalão and Madalena Pimentel and Oliver B. Clarke and Todd L. Lowary and Margarida Archer and Michael Niederweis and Clinton S. Potter and Bridget Carragher and Filippo Mancia},
+    title = {Cryo-{EM} structure of Arabinofuranosyltransferase AftD from Mycobacteria, Mutant R1389S}
+}
+
+@article{meng1997,
+    author = {Meng, Xiao-Li and Van Dyk, David},
+    title = "{The EM Algorithm—an Old Folk-song Sung to a Fast New Tune}",
+    journal = {Journal of the Royal Statistical Society: Series B (Methodological)},
+    volume = {59},
+    number = {3},
+    pages = {511-567},
+    year = {2002},
+    month = {01},
+    abstract = "{Celebrating the 20th anniversary of the presentation of the paper by Dempster, Laird and Rubin which popularized the EM algorithm, we investigate, after a brief historical account, strategies that aim to make the EM algorithm converge faster while maintaining its simplicity and stability (e.g. automatic monotone convergence in likelihood). First we introduce the idea of a ‘working parameter’ to facilitate the search for efficient data augmentation schemes and thus fast EM implementations. Second, summarizing various recent extensions of the EM algorithm, we formulate a general alternating expectation–conditional maximization algorithm AECM that couples flexible data augmentation schemes with model reduction schemes to achieve efficient computations. We illustrate these methods using multivariate t-models with known or unknown degrees of freedom and Poisson models for image reconstruction. We show, through both empirical and theoretical evidence, the potential for a dramatic reduction in computational time with little increase in human effort. We also discuss the intrinsic connection between EM-type algorithms and the Gibbs sampler, and the possibility of using the techniques presented here to speed up the latter. The main conclusion of the paper is that, with the help of statistical considerations, it is possible to construct algorithms that are simple, stable and fast.}",
+    issn = {0035-9246},
+    doi = {10.1111/1467-9868.00082},
+    url = {https://doi.org/10.1111/1467-9868.00082},
+    eprint = {https://academic.oup.com/jrsssb/article-pdf/59/3/511/49588939/jrsssb\_59\_3\_511.pdf},
+}
+
+@article{sorzano2021,
+    title = {Algorithmic robustness to preferred orientations in single particle analysis by CryoEM},
+    journal = {Journal of Structural Biology},
+    volume = {213},
+    number = {1},
+    pages = {107695},
+    year = {2021},
+    issn = {1047-8477},
+    doi = {https://doi.org/10.1016/j.jsb.2020.107695},
+    url = {https://www.sciencedirect.com/science/article/pii/S1047847720302689},
+    author = {C.O.S. Sorzano and D. Semchonok and S.-C. Lin and Y.-C. Lo and J.L. Vilas and A. Jiménez-Moreno and M. Gragera and S. Vacca and D. Maluenda and M. Martínez and E. Ramírez-Aportela and R. Melero and A. Cuervo and J.J. Conesa and P. Conesa and P. Losana and L. del Caño and J. Jiménez {de la Morena} and Y.C. Fonseca and R. Sánchez-García and D. Strelak and E. Fernández-Giménez and F. {de Isidro} and D. Herreros and P.L. Kastritis and R. Marabini and B.D. Bruce and J.M. Carazo},
+    keywords = {Electron microscopy, Single particle analysis, Preferred orientations},
+    abstract = {The presence of preferred orientations in single particle analysis (SPA) by cryo-Electron Microscopy (cryoEM) is currently one of the hurdles preventing many structural analyses from yielding high-resolution structures. Although the existence of preferred orientations is mostly related to the grid preparation, in this technical note, we show that some image processing algorithms used for angular assignment and three-dimensional (3D) reconstruction are more robust than others to these detrimental conditions. We exemplify this argument with three different data sets in which the presence of preferred orientations hindered achieving a 3D reconstruction without artifacts or, even worse, a 3D reconstruction could never be achieved.}
+}
+
+@article{herreros2023,
+  title = {Estimating conformational landscapes from Cryo-EM particles by 3D Zernike polynomials},
+  volume = {14},
+  ISSN = {2041-1723},
+  url = {http://dx.doi.org/10.1038/s41467-023-35791-y},
+  DOI = {10.1038/s41467-023-35791-y},
+  number = {1},
+  journal = {Nature Communications},
+  publisher = {Springer Science and Business Media LLC},
+  author = {Herreros,  D. and Lederman,  R. R. and Krieger,  J. M. and Jiménez-Moreno,  A. and Martínez,  M. and Myška,  D. and Strelak,  D. and Filipovic,  J. and Sorzano,  C. O. S. and Carazo,  J. M.},
+  year = {2023},
+  month = jan 
+}
+
+@article {schwab2023,
+	author = {Johannes Schwab and Dari Kimanius and Alister Burt and Tom Dendooven and Sjors H.W. Scheres},
+	title = {DynaMight: estimating molecular motions with improved reconstruction from cryo-EM images},
+	elocation-id = {2023.10.18.562877},
+	year = {2023},
+	doi = {10.1101/2023.10.18.562877},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {How to deal with continuously flexing molecules is one of the biggest outstanding challenges in single-particle analysis of proteins from cryo-EM images. Here, we present DynaMight, a new software tool that estimates a continuous space of conformations in a cryo-EM data set by learning 3D deformations of a Gaussian pseudo-atomic model of a consensus structure for every particle image. Inversion of the learnt deformations is then used to obtain an improved reconstruction of the consensus structure. We illustrate the performance of DynaMight for several experimental cryo-EM data sets. We also show how error estimates on the deformations may be obtained by independently training two variational autoencoders (VAEs) on half sets of the cryo-EM data, and how regularisation of the 3D deformations through the use of atomic models may lead to important artefacts due to model bias. DynaMight is distributed as free, open-source software, as part of RELION-5.Competing Interest StatementThe authors have declared no competing interest.},
+	URL = {https://www.biorxiv.org/content/early/2023/10/19/2023.10.18.562877},
+	eprint = {https://www.biorxiv.org/content/early/2023/10/19/2023.10.18.562877.full.pdf},
+	journal = {bioRxiv}
+}
+
+@article{vilas2018,
+    title = {MonoRes: Automatic and Accurate Estimation of Local Resolution for Electron Microscopy Maps},
+    journal = {Structure},
+    volume = {26},
+    number = {2},
+    pages = {337-344.e4},
+    year = {2018},
+    issn = {0969-2126},
+    doi = {https://doi.org/10.1016/j.str.2017.12.018},
+    url = {https://www.sciencedirect.com/science/article/pii/S0969212617304434},
+    author = {Jose Luis Vilas and Josué Gómez-Blanco and Pablo Conesa and Roberto Melero and José {Miguel de la Rosa-Trevín} and Joaquin Otón and Jesús Cuenca and Roberto Marabini and José María Carazo and Javier Vargas and Carlos Oscar S. Sorzano},
+    keywords = {electron microscopy, single particle analysis, local resolution},
+    abstract = {Summary
+    Since the beginning of electron microscopy, resolution has been a critical parameter. In this article, we propose a fully automatic, accurate method for determining the local resolution of a 3D map (MonoRes). The foundation of this algorithm is an extension of the concept of analytic signal, termed monogenic signal. The map is filtered at different frequencies and the amplitude of the monogenic signal is calculated, after which a criterion is applied to determine the resolution at each voxel. MonoRes is fully automatic without compulsory user parameters, with great accuracy in all tests, and is computationally more rapid than existing methods in the field. In addition, MonoRes offers the option of local filtering of the original map based on the calculated local resolution.}
+}
+
+@article{zhou2022,
+    title = {Data-driven determination of number of discrete conformations in single-particle cryo-EM},
+    journal = {Computer Methods and Programs in Biomedicine},
+    volume = {221},
+    pages = {106892},
+    year = {2022},
+    issn = {0169-2607},
+    doi = {https://doi.org/10.1016/j.cmpb.2022.106892},
+    url = {https://www.sciencedirect.com/science/article/pii/S0169260722002747},
+    author = {Ye Zhou and Amit Moscovich and Alberto Bartesaghi},
+    abstract = {Background and objective
+    One of the strengths of single-particle cryo-EM compared to other structural determination techniques is its ability to image heterogeneous samples containing multiple molecular species, different oligomeric states or distinct conformations. This is achieved using routines for in-silico 3D classification that are now well established in the field and have successfully been used to characterize the structural heterogeneity of important biomolecules. These techniques, however, rely on expert-user knowledge and trial-and-error experimentation to determine the correct number of conformations, making it a labor intensive, subjective, and difficult to reproduce procedure.
+    Methods
+    We propose an approach to address the problem of automatically determining the number of discrete conformations present in heterogeneous single-particle cryo-EM datasets. We do this by systematically evaluating all possible partitions of the data and selecting the result that maximizes the average variance of similarities measured between particle images and the corresponding 3D reconstructions.
+    Results
+    Using this strategy, we successfully analyzed datasets of heterogeneous protein complexes, including: 1) in-silico mixtures obtained by combining closely related antibody-bound HIV-1 Env trimers and other important membrane channels, and 2) naturally occurring mixtures from diverse and dynamic protein complexes representing varying degrees of structural heterogeneity and conformational plasticity.
+    Conclusions
+    The availability of unsupervised strategies for 3D classification combined with existing approaches for fully automatic pre-processing and 3D refinement, represents an important step towards converting single-particle cryo-EM into a high-throughput technique.}
+}
+
+@article{stagg2014,
+    title = {ResLog plots as an empirical metric of the quality of cryo-EM reconstructions},
+    journal = {Journal of Structural Biology},
+    volume = {185},
+    number = {3},
+    pages = {418-426},
+    year = {2014},
+    issn = {1047-8477},
+    doi = {https://doi.org/10.1016/j.jsb.2013.12.010},
+    url = {https://www.sciencedirect.com/science/article/pii/S1047847713003377},
+    author = {Scott M. Stagg and Alex J. Noble and Michael Spilman and Michael S. Chapman},
+    keywords = {Resolution, Electron microscopy, Noise bias, Structure validation},
+    abstract = {Compared to the field of X-ray crystallography, the field of single particle three-dimensional electron microscopy has few reliable metrics for assessing the quality of 3D reconstructions. New metrics are needed that can determine whether a given 3D reconstruction accurately reflects the structure of the particles from which it was derived or instead depicts a plausible though incorrect structure due to coarse misalignment of particles. Here an empirical procedure is presented for differentiating between a reconstruction with well-aligned particles and a reconstruction with grossly misclassified particles. For a given dataset, 3D reconstructions are computed from subsets of particles with decreasing numbers of particles contributing to the reconstruction. A plot of inverse resolution vs. the logarithm of the number of particles (a “ResLog” plot) provides metrics for the reliability of the reconstruction and the overall quality of the dataset and processing. Specifically, the y-intercept of a regression line provides a measure of the relative accuracy of the particle alignment and classification, and the slope is an indicator of the overall data quality including the imaging conditions and processing steps. ResLog plots can also be used to optimize conditions for data collection and reconstruction parameters. Although resolution estimates can vary by method of calculation, ResLog-derived parameters are consistent whether calculated by Fourier shell correlation or Fourier neighbor correlation, or a new coordinate-based metric that serves as a yardstick for structures where atomic coordinates are available. ResLog plots could become part of a standard set of parameters to be included in 3D reconstruction reports.}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Online
+%
+
+@online{chemistry_world_cryoem,
+    title = {Explainer: What is cryo-electron microscopy},
+    author= {Phillip Broadwith},
+    date = {2017-10-07},
+    url = {https://www.chemistryworld.com/news/explainer-what-is-cryo-electron-microscopy/3008091.article},
+    urldate = {2022-07-29}
+}
+
+@online{science_nobel,
+    title = {A cold, clear view of life wins chemistry Nobel},
+    author= {Erik Stokstad and Robert F. Service},
+    date = {2017-10-04},
+    url = {https://www.science.org/content/article/cold-clear-view-life-wins-chemistry-nobel},
+    urldate = {2022-07-29}
+}
+
+@online{cryoem101,
+    title = {CryoEM 101},
+    year = {2022},
+    url = {https://cryoem101.org},
+    urldate = {2022-07-29}
+}
+
+@online{greg,
+    title = {CryoEM},
+    author = {Greg Pintilie},
+    year = {2010},
+    url = {http://people.csail.mit.edu/gdp/cryoem.html},
+    urldate = {2022-11-11}
+}
+
+@online{chang2022a,
+    title = {Product Quantization for Similarity Search},
+    author = {Peggy Chang},
+    year = {2022},
+    month = {05},
+    url = {https://towardsdatascience.com/product-quantization-for-similarity-search-2f1f67c5fddd},
+    urldate = {2023-03-24}
+}
+
+@online{chang2022b,
+    title = {Similarity Search with IVFPQ},
+    author = {Peggy Chang},
+    year = {2022},
+    month = {05},
+    url = {https://medium.com/towards-data-science/similarity-search-with-ivfpq-9c6348fd4db3},
+    urldate = {2023-03-24}
+}
+
+@online{nobel1982,
+    title = {The Nobel Prize in Chemistry 1982},
+    url = {https://www.nobelprize.org/prizes/chemistry/1982/press-release/},
+    urldate = {2023-05-24}
+}
+
+@online{nobel2017,
+    title = {The Nobel Prize in Chemistry 2017},
+    url = {https://www.nobelprize.org/prizes/chemistry/2017/press-release/},
+    urldate = {2023-05-24}
+}
+
+@online{chou2018,
+    title = {Game Math: Swing-Twist Interpolation},
+    url = {https://allenchou.net/2018/05/game-math-swing-twist-interpolation-sterp/},
+    urldate = {2023-12-29}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture notes
+%
+
+@misc{wetzstein2018,
+    author = {Gordon Wetzstein},
+    title = {Lecture notes in Computational Imaging and Display},
+    month = {10},
+    year = {2018},
+    publisher = {Stanford}
+}
+
+@misc{sontag2012,
+    author = {David Sontag},
+    title = {Lecture notes in Clustering},
+    month = {10},
+    year = {2012},
+    publisher = {New York University},
+    url = {https://people.csail.mit.edu/dsontag/courses/ml12/slides/lecture14.pdf},
+    urldate = {2023-03-24}
+}
+
+@misc{shalizi2012,
+    author = {Cosma Shalizi},
+    title = {Lecture notes in Principal Components Analysis},
+    month = {04},
+    year = {2012},
+    publisher = {Carnegie Mellon University},
+    url = {https://www.stat.cmu.edu/~cshalizi/uADA/12/lectures/ch18.pdf},
+    urldate = {2023-06-06}
+}
+
+@misc{chan2014,
+    author = {Haowen Chan},
+    title = {Lecture notes in Max-cut, Hardness of Approximations},
+    month = {09},
+    year = {2014},
+    publisher = {Carnegie Mellon University},
+    url = {https://www.cs.cmu.edu/afs/cs/academic/class/15854-f05/www/scribe/lec02.pdf},
+    urldate = {2023-12-29}
+}
+
+@misc{kemal2008,
+    author = {Ali Kemal Sinop},
+    title = {Lecture notes in Semidefinite Programming and Max-Cut},
+    month = {02},
+    year = {2008},
+    publisher = {Carnegie Mellon University},
+    url = {https://www.cs.cmu.edu/~anupamg/adv-approx/lecture14.pdf},
+    urldate = {2023-12-29}
+}
+
+@misc{kennedy2008,
+    author = {Ali Kemal Sinop},
+    title = {Introduction to Mathematical Physics},
+    month = {09},
+    year = {2008},
+    chapter = {01},
+    publisher = {Arizona State University},
+    url = {https://www.math.arizona.edu/~tgk/541/chap1.pdf},
+    urldate = {2023-12-29}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Books
+%
+
+@book{kak2001,
+    author = {Kak, Avinash C. and Slaney, Malcolm},
+    title = {Principles of Computerized Tomographic Imaging},
+    publisher = {Society for Industrial and Applied Mathematics},
+    year = {2001},
+    doi = {10.1137/1.9780898719277},
+    address = {},
+    edition   = {},
+    URL = {https://epubs.siam.org/doi/abs/10.1137/1.9780898719277},
+    eprint = {https://epubs.siam.org/doi/pdf/10.1137/1.9780898719277}
+}
+
+@book{briggs2022,
+    author = {James Briggs},
+    title = {Faiss: The missing manual},
+    publisher = {Pinecone},
+    URL = {https://www.pinecone.io/learn/faiss/},
+    eprint = {https://www.pinecone.io/learn/faiss/}
+}
+
+@book{jolliffe2002,
+    title     = "Principal Component Analysis",
+    author    = "Jolliffe, I T",
+    publisher = "Springer",
+    series    = "Springer Series in Statistics",
+    edition   =  2,
+    month     =  12,
+    year      =  2002,
+    address   = "New York, NY",
+    language  = "en"
+}
+
+@Inbook{nakane2021,
+    author="Nakane, Takanori and Scheres, Sjors H. W.",
+    editor="Gonen, Tamir
+    and Nannenga, Brent L.",
+    title="Multi-body Refinement of Cryo-EMCryo-electron microscopy (Cryo-EM) Images in RELIONRELION",
+    bookTitle="cryoEM: Methods and Protocols",
+    year="2021",
+    publisher="Springer US",
+    address="New York, NY",
+    pages="145--160",
+    abstract="Single-particle analysis of electron cryo-microscopy (cryo-EM) images allows structure determination of macromolecular complexes. But when these molecules adopt many different conformations, traditional image processing approaches often lead to blurred reconstructions. By considering complexes to be comprised of multiple, independently moving rigid bodies, multi-body refinement in RELION enables structure determination of highly flexible complexes, while at the same time providing a characterization of the motions in the complex. Here, we describe how to perform multi-body refinement in RELION using a publicly available example. We outline how to prepare the necessary files, how to run the actual multi-body calculation, and how to interpret its output. This method can be applied to any cryo-EM data set of flexible complexes that can be divided into two or more bodies, each with a minimum molecular weight of 100--150kDa.",
+    isbn="978-1-0716-0966-8",
+    doi="10.1007/978-1-0716-0966-8_7",
+    url="https://doi.org/10.1007/978-1-0716-0966-8_7"
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Software
+%
+
+@software{scipion_chem,
+    author = {Daniel del Hoyo Gomez},
+    title = {Scipion Chem},
+    url = {https://github.com/scipion-chem/scipion-chem},
+    version = {3.0.0},
+    date = {2022-02-01},
+}
+
+@article{diamond2016,
+  author  = {Steven Diamond and Stephen Boyd},
+  title   = {{CVXPY}: {A} {P}ython-embedded modeling language for convex optimization},
+  journal = {Journal of Machine Learning Research},
+  year    = {2016},
+  volume  = {17},
+  number  = {83},
+  pages   = {1--5},
+}
+
+@article{agrawal2018,
+  author  = {Agrawal, Akshay and Verschueren, Robin and Diamond, Steven and Boyd, Stephen},
+  title   = {A rewriting system for convex optimization problems},
+  journal = {Journal of Control and Decision},
+  year    = {2018},
+  volume  = {5},
+  number  = {1},
+  pages   = {42--60},
+}
+
+@article{virtanen2020,
+  author  = {Virtanen, Pauli and Gommers, Ralf and Oliphant, Travis E. and
+            Haberland, Matt and Reddy, Tyler and Cournapeau, David and
+            Burovski, Evgeni and Peterson, Pearu and Weckesser, Warren and
+            Bright, Jonathan and {van der Walt}, St{\'e}fan J. and
+            Brett, Matthew and Wilson, Joshua and Millman, K. Jarrod and
+            Mayorov, Nikolay and Nelson, Andrew R. J. and Jones, Eric and
+            Kern, Robert and Larson, Eric and Carey, C J and
+            Polat, {\.I}lhan and Feng, Yu and Moore, Eric W. and
+            {VanderPlas}, Jake and Laxalde, Denis and Perktold, Josef and
+            Cimrman, Robert and Henriksen, Ian and Quintero, E. A. and
+            Harris, Charles R. and Archibald, Anne M. and
+            Ribeiro, Ant{\^o}nio H. and Pedregosa, Fabian and
+            {van Mulbregt}, Paul and {SciPy 1.0 Contributors}},
+  title   = {{{SciPy} 1.0: Fundamental Algorithms for Scientific
+            Computing in Python}},
+  journal = {Nature Methods},
+  year    = {2020},
+  volume  = {17},
+  pages   = {261--272},
+  adsurl  = {https://rdcu.be/b08Wh},
+  doi     = {10.1038/s41592-019-0686-2},
+}
+
+@incollection{paszke2019,
+    title = {PyTorch: An Imperative Style, High-Performance Deep Learning Library},
+    author = {Paszke, Adam and Gross, Sam and Massa, Francisco and Lerer, Adam and Bradbury, James and Chanan, Gregory and Killeen, Trevor and Lin, Zeming and Gimelshein, Natalia and Antiga, Luca and Desmaison, Alban and Kopf, Andreas and Yang, Edward and DeVito, Zachary and Raison, Martin and Tejani, Alykhan and Chilamkurthy, Sasank and Steiner, Benoit and Fang, Lu and Bai, Junjie and Chintala, Soumith},
+    booktitle = {Advances in Neural Information Processing Systems 32},
+    pages = {8024--8035},
+    year = {2019},
+    publisher = {Curran Associates, Inc.},
+    url = {http://papers.neurips.cc/paper/9015-pytorch-an-imperative-style-high-performance-deep-learning-library.pdf}
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Other
+%
+
+@thesis{nikazad2008,
+    author        = {Touraj Nikazad},
+    title         = {Algebraic Reconstruction Methods},
+    year          = {2008},
+    publisher     = {Linköping Universitet}
+}
+
+@thesis{zarrabeitia2023,
+    author        = {Oier Lauzirika Zarrabeitia},
+    title         = {Development of a fast image alignment algorithm for Cryo-Electron Microscopy},
+    year          = {2023},
+    publisher     = {Universidad Politécnica de Madrid}
+}
