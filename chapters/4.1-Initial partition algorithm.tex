@@ -225,7 +225,13 @@ where
     \end{bmatrix}
 \end{equation}
 
-Due to the commutative property of the inner product, we can deduce that $\bm{X}$ must be symmetric. Moreover, all its diagonal values must be 1, as these involve the dot product of a unit vector with itself. Last but not least, given the fact that $\bm{X}$ can be expressed as the outer product of a matrix $\bm{Y}$ with itself, $X$ is also guaranteed to be positive semi-definite\footnote{$\bm{x}^T (\bm{Y} \bm{Y}^T) \bm{x} = (\bm{Y}^T \bm{x})^T (\bm{Y}^T \bm{x}) = \lVert \bm{Y}^T \bm{x} \rVert^2 \geq 0 \quad \forall \bm{x}$}. Considering all these constraints, we can pose the \gls{sdp} problem shown in Equation \eqref{eq:4.1:relaxation}. The greatest benefit of this formulation is that there are \gls{sdp} solvers that run in polynomial time (as opposed to the binary optimisation problem which was NP-Hard).
+Due to the commutative property of the inner product, we can deduce that $\bm{X}$ must be symmetric. Moreover, all its diagonal values must be 1, as these involve the dot product of a unit vector with itself. Last but not least, given the fact that $\bm{X}$ can be expressed as the outer product of a matrix $\bm{Y}$ with itself, $X$ is also guaranteed to be positive semi-definite: 
+
+\begin{equation}
+    \bm{x}^T (\bm{Y} \bm{Y}^T) \bm{x} = (\bm{Y}^T \bm{x})^T (\bm{Y}^T \bm{x}) = \lVert \bm{Y}^T \bm{x} \rVert^2 \geq 0 \quad \forall \bm{x}
+\end{equation}
+
+Considering all these constraints, we can pose the \gls{sdp} problem shown in Equation \eqref{eq:4.1:relaxation}. The greatest benefit of this formulation is that there are \gls{sdp} solvers that run in polynomial time (as opposed to the binary optimisation problem which was NP-Hard).
 
 \begin{equation}\label{eq:4.1:relaxation}
 \begin{aligned}
