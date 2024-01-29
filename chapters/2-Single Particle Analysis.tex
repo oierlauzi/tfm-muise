@@ -29,7 +29,7 @@ The frames contained in a movie are in chronological order. As a result, the las
 Additionally, the electron beam positioning system drifts between frames and the sample tends to bend, which tends to produce optical flow between frames. Consequently, the frames are not aligned to one another. This needs to be fixed before attempting to average the frames, as otherwise the resulting micrograph would loose resolution.
 
 \subsection{CTF estimation}
-\Glspl{tem} do not have a planar frequency response. Instead, they ``colour'' the images with a characteristic \gls{ctf} known as Thon rings. This transfer function has a sinusoidal appearance, with decreasing periodicity and a overall tendency to attenuate higher frequencies\cite{cryoem101}.  In addition, the rings may have elliptical shape, being wider in some axis. This is known as astigmatism. A example of a \gls{tem} \gls{ctf} is shown in the Figure \ref{fig:2:ctf}.
+\Glspl{tem} do not have a planar frequency response. Instead, they ``colour'' the images in frequency space that causes a characteristic \gls{psd} pattern known as Thon rings. This transfer function has a sinusoidal appearance, with decreasing periodicity and a overall tendency to attenuate higher frequencies\cite{cryoem101}.  In addition, the rings may have elliptical shape, being wider in some axis. This is known as astigmatism. A example of a \gls{tem} \gls{ctf} is shown in the Figure \ref{fig:2:ctf}.
 
 \begin{figure}[htbp]
     \centering
@@ -115,7 +115,7 @@ These 2D classes have many applications. For instance, their averages can be use
     \label{fig:2:2d_classification}
 \end{figure}
 
-\subsection{Ab-initio map reconstruction}
+\subsection{\textit{Ab-initio} map reconstruction}
 3D reconstruction is usually a \gls{sgd} algorithm which iteratively improves a 3D electron density map of the protein under study. Therefore, choosing a good starting point is important to improve the performance of the \gls{sgd} algorithm and avoid local minimums as much as possible. This starting point is known as the initial model. As the gradient descent starts at this volume, the final result will be heavily biased by it\cite{sigworth2015}.
 
 The problem of obtaining a initial volume lies in deducing a 3D volume from a set of 2D projections that were done across unknown directions. There is a large set of approaches to address this problem. Some approaches perform a random angular assignments and then start the gradient descent from it. Some other algorithms rely on correlating a vast amount of random reconstructions\cite{vargas2014}. Finally, there are some novel approaches that make use of unsupervised \gls{ml} methods to learn a map from the particles\cite{levy2022}.

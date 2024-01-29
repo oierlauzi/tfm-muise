@@ -2,10 +2,10 @@
 
 \begin{document}
 
-Using the previously described datasets we have conducted an exhaustive evaluation of our 3D classification method. This evaluation involved a comprehensive comparison with widespread state-of-the-art solutions, specifically Relion\cite{scheres2021} and Cryosparc\cite{cryosparc}. To ensure a fair comparison, we have conducted tests under conditions as similar as possible. Due to our limitation of only being able to categorize into two classes, we have enforced this condition on all tests.
+Using the previously described datasets we have conducted an exhaustive evaluation of our 3D classification method. This evaluation involved a comprehensive comparison with widespread state-of-the-art solutions, specifically Relion\cite{scheres2021} and CryoSPARC\cite{cryosparc}. To ensure a fair comparison, we have conducted tests under conditions as similar as possible. Due to our limitation of only being able to categorize into two classes, we have enforced this condition on all tests.
 
 
-To be more specific, Relion has been tested with its default execution parameters, which implies that 25 \gls{em} will be performed by it. Similarly Cryosparc will be tested both with ``simple'' (random) initialization and ``PCA'' initialization, leaving the rest of the parameters with their default values. In addition, our graph based approach will be executed with its default parameters. Lastly, a combination of our classification method with 2 Relion \gls{em} iterations will be assessed. The results are presented on a dataset basis, so that information needed for comparisons can be easily gathered. Nevertheless, performance results are presented jointly.
+To be more specific, Relion has been tested with its default execution parameters, which implies that 25 \gls{em} iterations will be performed by it. Similarly, CryoSPARC will be tested both with ``simple'' (random) initialization and ``PCA'' initialization, leaving the rest of the parameters with their default values. In addition, our graph based approach will be executed with its default parameters. Lastly, a combination of our classification method with 2 Relion \gls{em} iterations will be assessed. The results are presented on a dataset basis, so that information needed for comparisons can be easily gathered. Nevertheless, performance results are presented jointly.
 
 Due to a lack of ground truth, we will qualitatively evaluate the results by comparing the reconstructed classes. To do so, we will present representative slices from the reconstructions side by side, highlighting the difference. Similarly, resolution measurements are not suitable for assessing classification quality, as this depends greatly on the number of particles used for reconstruction.
 
@@ -14,7 +14,7 @@ Last but not least, computation time is measured, so that the performance alignm
 \subsection{TRPV-5}
 As mentioned in the introduction of this dataset, it consists of a mixture of two separate experiments, one of which contains a mutation that disables calmodulin from binding at a particular spot. In this test we will try to identify this position using our own approach.
 
-Unluckily, neither Relion nor Cryosparc converged with this dataset, regardless of the configuration used in the execution. We suspect that they suffered attraction, as almost all particles ended in a single class. This attraction theory is supported by the evidence shown in Figure \ref{fig:5.2:trpv_attraction}, which plots the class distribution across \gls{em} iterations of the Relion 3D classification. Therefore, we are not able to provide a comparison for this experiment. Nevertheless, we have measured their execution times for later comparison. 
+Unluckily, neither Relion nor CryoSPARC converged with this dataset, regardless of the configuration used in the execution. We suspect that they suffered attraction, as almost all particles ended in a single class. This attraction theory is supported by the evidence shown in Figure \ref{fig:5.2:trpv_attraction}, which plots the class distribution across \gls{em} iterations of the Relion 3D classification. Therefore, we are not able to provide a comparison for this experiment. Nevertheless, we have measured their execution times for later comparison. 
 
 \begin{figure}[hbp]
     \centering
@@ -59,7 +59,7 @@ The results obtained with this dataset are particularly interesting because Reli
 \subsection{Pre-cathalytic spliceosome}
 The next analyzed dataset will be the Pre-cathalytic spliceosome. As introduced later, this protein is comprised of multiple flexible areas, which will be explored separately. To do so, we will use the provided masks to focus the classification on the region we are interested in.
 
-When focusing our classification on the helicase part of the spliceosome, we observed inferior results when using our graph based algorithm standalone. However, when combined with Relion, it managed to obtain qualitatively similar results to Cryosparc or standalone Relion. In addition, as discussed later, this combined approach run faster than the rest. 
+When focusing our classification on the helicase part of the spliceosome, we observed inferior results when using our graph based algorithm standalone. However, when combined with Relion, it managed to obtain qualitatively similar results to CryoSPARC or standalone Relion. In addition, as discussed later, this combined approach run faster than the rest. 
 
 \begin{figure}[hbp]
     \centering
@@ -76,13 +76,13 @@ When focusing our classification on the helicase part of the spliceosome, we obs
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
          \includegraphics[width=\textwidth]{results/experiments/helicase/simple}
-         \caption{Cryosparc (simple)}
+         \caption{CryoSPARC (simple)}
     \end{subfigure}\\
     \vspace{1em}
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
          \includegraphics[width=\textwidth]{results/experiments/helicase/pca}
-         \caption{Cryosparc (PCA)}
+         \caption{CryoSPARC (PCA)}
     \end{subfigure}
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
@@ -91,7 +91,7 @@ When focusing our classification on the helicase part of the spliceosome, we obs
     \end{subfigure}
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{results/experiments/helicase/relion}
+         \includegraphics[width=\textwidth]{results/experiments/helicase/split+rln}
          \caption{Graph-based + Relion}
     \end{subfigure}
     \caption{Classification experiments with the spliceosome dataset focusing on the helicase subunit}
@@ -115,13 +115,13 @@ Similarly, when focusing the classification on the SF3b part of the protein, the
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
          \includegraphics[width=\textwidth]{results/experiments/sf3b/simple}
-         \caption{Cryosparc (simple)}
+         \caption{CryoSPARC (simple)}
     \end{subfigure}\\
     \vspace{1em}
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
          \includegraphics[width=\textwidth]{results/experiments/sf3b/pca}
-         \caption{Cryosparc (PCA)}
+         \caption{CryoSPARC (PCA)}
     \end{subfigure}
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
@@ -130,7 +130,7 @@ Similarly, when focusing the classification on the SF3b part of the protein, the
     \end{subfigure}
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{results/experiments/sf3b/relion}
+         \includegraphics[width=\textwidth]{results/experiments/sf3b/split+rln}
          \caption{Graph-based + Relion}
     \end{subfigure}
     \caption{Classification experiments with the spliceosome dataset focusing on the SF3b subunit}
@@ -156,13 +156,13 @@ The last assessed dataset is HER-2. As shown in Figure \ref{fig:5.2:her2_slices}
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
          \includegraphics[width=\textwidth]{results/experiments/her2/simple}
-         \caption{Cryosparc (simple)}
+         \caption{CryoSPARC (simple)}
     \end{subfigure}\\
     \vspace{1em}
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
          \includegraphics[width=\textwidth]{results/experiments/her2/pca}
-         \caption{Cryosparc (PCA)}
+         \caption{CryoSPARC (PCA)}
     \end{subfigure}
     \begin{subfigure}[b]{0.3\textwidth}
          \centering
@@ -179,7 +179,7 @@ The last assessed dataset is HER-2. As shown in Figure \ref{fig:5.2:her2_slices}
 \end{figure}
 
 \subsection{Performance}
-Regarding the performance of our algorithm, Figure \ref{fig:5.2:performance} shows that it is consistently faster than other solutions. Even when factoring the additional Relion iterations, it can keep pace with Cryosparc, even surpassing it with certain datasets. The difference is specially notable with the standalone Relion executions, as these are not \gls{gpu} accelerated.
+Regarding the performance of our algorithm, Figure \ref{fig:5.2:performance} shows that it is consistently faster than other solutions. Even when factoring the additional Relion iterations, it can keep pace with CryoSPARC, even surpassing it with certain datasets. The difference is specially notable with the standalone Relion executions, as these are not \gls{gpu} accelerated.
 
 Regardless of the algorithm used, it is remarkable that the execution time varies greatly across datasets. Indeed, we have used two different time scales when representing the execution times in Figure \ref{fig:5.2:performance}, as processing the spliceosome was much slower. This is probably related to the fact that particles of this dataset are the largest ones. In addition, its amount of particles is also substantial, only being surpassed by the HER-2 dataset.
 

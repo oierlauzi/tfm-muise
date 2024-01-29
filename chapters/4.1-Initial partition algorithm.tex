@@ -38,24 +38,24 @@ As a first step, our algorithm groups neighbouring projections, as they are cons
 
 Each of these groups has a representative projection direction, which will be named as $\bm{r_i} \in S^2$, where $S^2$ is the unit sphere in $\mathbb{R}^3$. These direction vectors are artificially generated in such a way that they are quasi equally spaced in the unit sphere. These points can be limited to a hemisphere, as projections emanating from antipodes are equivalent, except for a mirror transformation. Additionally, if the protein under study poses symmetry, this can be accounted to further reduce the directions to the unit cell of the corresponding symmetry group.
 
-Regarding the particles themselves, their projection direction is usually represented by a triplet of Euler angles: $(\text{rot}, \text{tilt}, \psi)_i$. However, for our purposes, it becomes more handy to represent projection directions of the experimental images with unit vectors $\bm{\gamma_i} \in S^2$. The Euler angles can be easily converted to vector notation using the expression \eqref{eq:4.1:euler_to_vector}:
+Regarding the particles themselves, their projection direction is usually represented by a triplet of Euler angles: $(\theta, \phi, \psi)_j$. However, for our purposes, it becomes more handy to represent projection directions of the experimental images with unit vectors $\bm{\gamma_j} \in S^2$. The Euler angles can be easily converted to vector notation using the expression \eqref{eq:4.1:euler_to_vector}:
 
 \begin{equation}\label{eq:4.1:euler_to_vector}
     \bm{\gamma_i} =
     \begin{bmatrix}
-        \text{sin}(\text{tilt}_i) \cdot \text{cos}(\text{rot}_i) \\ 
-        \text{sin}(\text{tilt}_i) \cdot \text{sin}(\text{rot}_i) \\ 
-        \text{cos}(\text{tilt}_i)
+        \text{sin}(\text{tilt}_j) \cdot \text{cos}(\text{rot}_j) \\ 
+        \text{sin}(\text{tilt}_j) \cdot \text{sin}(\text{rot}_j) \\ 
+        \text{cos}(\text{tilt}_j)
     \end{bmatrix}
 \end{equation}
 
 At this point, the grouping of projections becomes trivial: A particle is considered to be on a group only if the angle between its projection direction and the representative direction of the group is smaller than some arbitrary threshold $\theta_{max}$:
 
 \begin{equation}
-    G_i = \{ j : \text{acos}(\bm{r_i}^T\bm{\gamma_j}) \leq \theta_{max} \}
+    G_i = \{ j : \text{acos}(\langle \bm{r_i}, \bm{\gamma_j} \rangle) \leq \theta_{max} \}
 \end{equation}
 
-$\theta_{max}$ defines the aperture of the cones used for grouping. Thus, it is important to use a value low enough such that the variability induced by the projection direction is negligible compared to the actual variability in the structure. In our experience a value of $7.5 \si{\degree}$ provides good results. Similarly, the number of groups needs to be sufficient so that these cones overlap. To do so, we are selecting the number of groups so that they are spaced on average by $\Delta\theta \approx \theta_{max}$ as shown in Figure \ref{fig:4.1:cones}. 
+$\theta_{max}$ defines the aperture of the cones used for grouping. Thus, it is important to use a value low enough such that the variability induced by the projection direction is negligible compared to the actual variability in the structure. In our experience, a value of $7.5 \si{\degree}$ provides good results. Similarly, the number of groups needs to be sufficient so that these cones overlap. To do so, we are selecting the number of groups so that they are spaced on average by $\Delta\theta \approx \theta_{max}$ as shown in Figure \ref{fig:4.1:cones}. 
 
 \subsection{Classification of neighbouring projections}
 In the previous step we have classified images according to their projection direction.  At this point, our intention is to classify the images from each group into two classes that are maximally dissimilar. This process will be applied for each directional group.
@@ -72,20 +72,41 @@ Before attempting any classification, images need to be aligned to one another. 
 
 First, the center offset of the particles accounted by displacing them by their shift estimate $(\delta_x, \delta_y)$ in the opposite direction. This ensures that the particle is centered in the image frame. 
 
-Secondly, the in-plane rotation of the particles is corrected. To do so, the Euler angle estimates are converted to quaternion space. Then, the rotation angle of a quaternion $\bm{Q} = (\bm{v}, w)$ around the $\bm{r_i}$ axis can be derived from the twist-swing\cite{chou2018} decomposition:
+Secondly, the in-plane rotation of the particles is corrected. To do so, the Euler angle estimates are converted to quaternion space. Then, the quaternion $\bm{Q_j} = (\bm{v_j}, w_j) = (\bm{u_j} \cdot \sin\theta_j, \cos\theta_j)$ is projected onto the $\bm{r_i}$ axis using the expression \eqref{eq:4.1:twist}. This expression was derived from the twist-swing\cite{chou2018} decomposition, which describes a quaternion with two components: a rotation around a certain axis and the residual part. In this case, we are only interested in the rotation around the projection direction.
 
-\begin{equation}
-    \hat{\psi} = \text{atan2}(\bm{Q_v}^T\bm{r_i}, \bm{Q}_w)
+\begin{equation}\label{eq:4.1:twist}
+    \hat{\psi} = \text{atan2}(\langle \bm{v_j}, \bm{r_i} \rangle, w)
 \end{equation}
 
-Note that $\psi$ of the Euler angles also expresses the in-plane rotation. However, due to the fact that we are combining images with (slightly) different projection angles, $\hat{\psi}$ leads to a more precise in-plane alignment.
+Note that the $\psi$ component of the Euler angles also expresses the in-plane rotation. However, due to the fact that we are combining images with (slightly) different projection angles, $\hat{\psi}$ leads to a more precise in-plane alignment.
 
-In practice, both of the alignment operations (rotation and shift) are performed at once with an affine matrix transformation.
+In practice, both of the alignment operations (rotation and shift) are performed at once with an affine matrix transformation. This matrix is shown in Equation \eqref{eq:4.1:affine}. Note that the shift is applied before the rotation, so the rotation is also applied to the shift vector.
+
+\begin{equation}\label{eq:4.1:affine}
+    M =
+    \begin{bmatrix}
+        \cos \hat{\psi} & -\sin \hat{\psi} & 0\\
+        \sin \hat{\psi} & \cos \hat{\psi} & 0\\
+        0 & 0 & 1\\
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+        1 & 0 & \delta_x\\
+        0 & 1 & \delta_y\\
+        0 & 0 & 1\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \cos \hat{\psi} & -\sin \hat{\psi} & \cos \hat{\psi} \cdot \delta_x - \sin \hat{\psi} \cdot \delta_y\\
+        \sin \hat{\psi} & \cos \hat{\psi} & \sin \hat{\psi} \cdot \delta_x + \cos \hat{\psi} \cdot \delta_y\\
+        0 & 0 & 1\\
+    \end{bmatrix}
+\end{equation}
 
 \subsubsection{Image classification}
 Once all the particles of a directional group are aligned to one another, a classification is attempted. To do so, we have used \gls{pca}, a popular dimensionality reduction technique\cite{kurita2019}. In short terms, \gls{pca} describes a set of multidimensional points in an orthogonal basis where its components are not correlated. Moreover, components of the basis are ordered by the variance they capture\cite{karamizadeh2013}.
 
-On our approach, we consider a flattened version of the image as vectors, so that \gls{pca} can be applied to them. This flattening is performed on a mask, so that the classification can focused on a \gls{roi}. This mask is generated by projecting the input 3D mask in the reference direction.
+On our approach, we consider a lexicographically ordered version of the image (pixels layed out as a 1D vector), so that \gls{pca} can be applied to them. This ordering is performed withing a mask, so that the classification can focused on a \gls{roi}. This mask is generated by projecting the input 3D mask in the reference direction.
 
 This \gls{pca} procedure is applied in each group to an aligned stack of particles as shown in Figure \ref{fig:4.1:eigenimage}. Assuming that the primary source of variability across images is the heterogeneity, the first eigen-image will be representative of this heterogeneity.
 
@@ -99,12 +120,12 @@ This \gls{pca} procedure is applied in each group to an aligned stack of particl
 In our implementation, we use \texttt{pytorch}\cite{paszke2019} to perform the \gls{pca} analysis and obtain the first eigen-image. Then, the eigen-image can be used as a projection basis for the images. This allows to order particles according to their projection value. Indeed, this can be interpreted as an interpolation weight between two classes that are maximally dissimilar, $C_+$ and $C_-$.
 
 \begin{equation}\label{eq:4.1:pca_projection}
-    \rho_i = \bm{u_1}^T \bm{x_i}
+    \rho_i = \langle \bm{u_1}, \bm{x_i} \rangle
 \end{equation}
 
 where $\bm{u_1}$ is the first principal component (largest eigenvalue) and $\bm{x_i}$ is the vector representation of a particle.
 
-We will assume that \gls{pca} projection values of follow Gaussian distributions $C_+ \sim \mathcal{N}(\mu_+, \sigma_+)$ and $C_- \sim \mathcal{N}(\mu_-, \sigma_-)$. Thus, using the projection values we can attempt a classification by fitting a \gls{gmm} of two components to their histogram. To avoid numerical stability issues, we enforce the same variance for both \gls{gmm} components ($\sigma_+ = \sigma_-$). Consequently, each component of the \gls{gmm} can be used to estimate the likelihood of their corresponding class. A example of such a fitting is displayed in Figure \ref{fig:4.1:gmm}.
+We will assume that \gls{pca} projection values of follow Gaussian distributions $C_+ \sim \mathcal{N}(\mu_+, \sigma_+^2)$ and $C_- \sim \mathcal{N}(\mu_-, \sigma_-^2)$. Thus, using the projection values we can attempt a classification by fitting a \gls{gmm} of two components to their histogram. To avoid numerical stability issues, we enforce the same variance for both \gls{gmm} components ($\sigma_+^2 = \sigma_-^2$). Consequently, each component of the \gls{gmm} can be used to estimate the likelihood of their corresponding class. An example of such a fitting is displayed in Figure \ref{fig:4.1:gmm}.
 
 \begin{figure}[hbp]
     \centering
@@ -128,7 +149,7 @@ We will name the log likelihood ratio of a given particle as $\lambda_i$:
 \subsection{Directional class synchronization}
 In the previous step we have established two classes for each of the directional groups. It is expected that these classifications have been performed according to the heterogeneity we are interested in. However, this does not mean that classes match across groups. In fact, \gls{pca} has two equally valid solutions for each axis, which are opposite to one another. Similarly, the \gls{gmm} fitting is arbitrary. Thus, class ordering is not deterministic. In other words, $C_+$ in one group may correspond to $C_-$ in another group and vice versa.
 
-Consequently, a synchronization of classes across directional groups is required. This is why cones needed to overlap. Doing so, we can make use of common particles to evaluate if a given pair of adjacent groups have equal or opposite classifications. 
+Consequently, a synchronization of classes across directional groups is required. That is why cones need to overlap. Doing so, we can make use of common particles to evaluate if a given pair of adjacent groups have equal or opposite classifications. 
 
 The first step to perform this synchronisation is to find the common particles by computing the set intersection of adjacent groups:
 \begin{equation}\label{eq:4.1:intersection}
@@ -156,9 +177,9 @@ Thus, we can express our synchronization problem as the quadratic binary optimis
 where the sign of $\sigma_i$ relates to a group being swapped or not. 
 
 \subsubsection{Analogy with magnetic dipoles}
-Although this optimisation problem may look naive, it is not trivial to solve, as it can not be approached with Lagrange multipliers. Similar cases to this problem also appear in nature, as is the case of the Hamiltonian of the Ising Model.
+Although this optimisation problem may look naive, it is not trivial to solve, as it cannot be approached with Lagrange multipliers. Similar cases to this problem also appear in nature, as is the case of the Hamiltonian of the Ising Model\cite{kennedy2008}.
 
-The Ising Model describes the behaviour of a network of magnetic dipoles where these may freely flip their polarity. The Hamiltonian of the model is quantitative of the energy of the system\cite{kennedy2008}. As in many cases in nature, the energy of a system tends to be minimal, and the Ising Model is not an exception to this rule. Thus, the Ising Model will be on a stable state only if its Hamiltonian is minimal. The expression for Hamiltonian of the Ising Model without external interactions is provided hereafter:
+The Ising Model describes the behaviour of a network of magnetic dipoles where these may freely flip their polarity. The Hamiltonian of the model represents the energy of the system\cite{kennedy2008}. As in many cases in nature, the energy of a system tends to be minimal, and the Ising Model is not an exception to this rule. Thus, the Ising Model will be on a stable state only if its Hamiltonian is minimal. The expression for Hamiltonian of the Ising Model without external interactions is provided hereafter:
 
 \begin{equation}\label{eq:4.1:ising}
 \begin{aligned}
@@ -167,13 +188,13 @@ The Ising Model describes the behaviour of a network of magnetic dipoles where t
 \end{aligned}
 \end{equation}
 
-where $J_{ij}$ represents the magnetic interaction between each pair of dipoles. When $J_{ij} > 0$ the interaction is ferromagnetic (magnet polarities to align) and when $J_{ij} < 0$ the interaction is anti-ferromagnetic (magnet polarities tend to oppose). This will help us establish a classification-magnet metaphor.
+where $J_{ij}$ represents the magnetic interaction between each pair of dipoles. When $J_{ij} > 0$ the interaction is ferromagnetic (magnet polarities to align) and when $J_{ij} < 0$ the interaction is anti-ferromagnetic (magnet polarities tend to oppose). $\sigma_i$ represents the spin of each of the magnetic dipoles in the system. This will help us establish a classification-magnet metaphor.
 
 Except for the minus sign, the expression \eqref{eq:4.1:ising} is equal to our objective function detailed in \eqref{eq:4.1:optimisation}. Indeed, due to this duality, the minimisation of the energy in the Ising Model corresponds to the maximisation of our objective function. Therefore, solutions to the Ising Model also serve as solutions for our problem. 
 
 One of the most common ways to approach the Ising Model problem is by finding the maximum cut of the graph defined by the weighted adjacency matrix $\bm{A} = -\bm{J}$, which in our case corresponds to the similarity matrix $\bm{W}$. Once the graph has been bi-partitioned using the maximum cut criteria, magnets (or classes) of one partition are flipped to minimize energy (or maximize compatibility)\cite{kennedy2008}.
 
-An example of this graph representation of direction similarities is detailed in Figure \ref{fig:4.1:graph}.
+An example of a graph of direction similarities is detailed in Figure \ref{fig:4.1:graph}, where the edge colours represent the similarity metric between adjacent directions. The vertices are positioned in $\bm{\gamma_i}$, so that the graph appears to be embedded in the projection sphere.
 
 \begin{figure}[hbp]
     \centering
@@ -185,17 +206,17 @@ An example of this graph representation of direction similarities is detailed in
 \subsubsection{Graph maximum cut algorithm using SDP}
 Until this point we have only shifted our optimisation problem into other domains, without giving any concrete solution to it. Nevertheless, we have reasoned that our problem directly maps to the graph maximum cut problem.
 
-The graph maximum cut is defined as ``A cut whose size is at least the size of any other cut''\cite{sudakov2005}. However, similar to the previous analogies, this problem is not easy to solve, as it is deemed NP-Hard\cite{chan2014}. Luckily, numerous heuristic approaches exist that provide reasonably bounded solutions.
+A graph cut is a partition of the graph into two disjoint sets of vertices (no edges connecting the two subsets). Thus, the the graph cut size is the sum of the edges that need to be removed to obtain a disjoint bi-partition. Considering the former definition, the graph maximum cut is defined as ``A cut whose size is at least the size of any other cut''\cite{sudakov2005}. However, similar to the previous analogies, this problem is not easy to solve, as it is deemed NP-Hard\cite{chan2014}. Luckily, numerous heuristic approaches exist that provide reasonably bounded solutions.
 
-In our case, we have decided to use an approach based on \gls{sdp}. This approximation is guaranteed to find a solution that is at least $87 \si{\percent}$ accurate while also being efficient\cite{kemal2008}.
+In our case, we have decided to use an approach based on \gls{sdp}. This approximation is guaranteed to find a solution that is at least $87 \si{\percent}$ accurate while also being computationally efficient\cite{kemal2008}.
 
 The \gls{sdp} approach involves relaxing $\sigma_i \in \{-1, +1\}$ to $\bm{x_i} \in S^{N-1}$ where $S^{N-1}$ is the unit sphere in $\mathbb{R}^N$. This allows us to define the matrix $\bm{X}$ of pairwise dot products:
 
 \begin{equation}
-    X_{ij} = \bm{x_i}^T \bm{x_j}
+    X_{ij} = \langle \bm{x_i}, \bm{x_j} \rangle
 \end{equation}
 
-Due to the commutative property of the inner product, we can deduce that $\bm{X}$ must be symmetric. Moreover, all its diagonal values must be 1, as these involve the dot product of a unit vector with itself. Last but not least, this matrix is also guaranteed to be positive semi-definite\cite{kemal2008}. Considering all these constraints, we can pose the \gls{sdp} problem shown in equation \eqref{eq:4.1:relaxation}. The greatest benefit of this formulation is that there are \gls{sdp} solvers that run in polynomial time (as opposed to the binary optimisation problem which was NP-Hard).
+Due to the commutative property of the inner product, we can deduce that $\bm{X}$ must be symmetric. Moreover, all its diagonal values must be 1, as these involve the dot product of a unit vector with itself. Last but not least, this matrix is also guaranteed to be positive semi-definite\cite{kemal2008}. Considering all these constraints, we can pose the \gls{sdp} problem shown in Equation \eqref{eq:4.1:relaxation}. The greatest benefit of this formulation is that there are \gls{sdp} solvers that run in polynomial time (as opposed to the binary optimisation problem which was NP-Hard).
 
 \begin{equation}\label{eq:4.1:relaxation}
 \begin{aligned}
@@ -207,10 +228,10 @@ Due to the commutative property of the inner product, we can deduce that $\bm{X}
 \end{aligned}
 \end{equation}
 
-In our implementation, we use \texttt{cvxpy}\cite{agrawal2018}\cite{diamond2016} package to solve this \gls{sdp} problem. To get back the values of $\bm{x_i}$ from $\bm{X}$ we use matrix square root function available in \texttt{scipy}\cite{virtanen2020}. Finally, we undo the relaxation to extract $\sigma_i$ from $\bm{x_i}$:
+In our implementation, we use \texttt{cvxpy}\cite{agrawal2018}\cite{diamond2016} package to solve this \gls{sdp} problem. To get back the values of $\bm{x_i}$ from $\bm{X}$ we use matrix square root function available in \texttt{scipy}\cite{virtanen2020}. Finally, we undo the relaxation to extract $\sigma_i$ from $\bm{x_i}$\cite{kemal2008}:
 
 \begin{equation}
-    \sigma_i = \text{sign}(\bm{v}^T \bm{x_i})
+    \sigma_i = \text{sign}(\langle \bm{v}, \bm{x_i} \rangle)
 \end{equation}
 
 where $\bm{v}$ is a random vector in $S^{N-1}$.

@@ -5,9 +5,7 @@
 In the previous section we described the algorithmic implementation of the 3D classification method. In this section we aim to explain how the code was structured to approach this task. Most of the code was developed as a Scipion protocol, although some specific tasks were delegated to separate programs.
 
 \subsection{Scipion protocol}
-Scipion is a \gls{cryoem} image processing platform that integrates many widespread image processing packages through plugins. Each plugin consists of a collection of programs known as protocols. Usually, protocols can be seen as high-level steps of an image processing pipeline. Indeed, a 3D classification can be considered as a protocol.
-
-In this project, we have implemented our program as a Scipion protocol inside the Xmipp plugin. The protocol is named as \texttt{split volume} although this does not need to be confused with the old \texttt{split volume} protocol it replaces.
+Scipion is a \gls{cryoem} image processing platform that integrates many widespread image processing packages through plugins. Each plugin consists of a collection of programs known as protocols. Usually, protocols can be seen as high-level steps of an image processing pipeline. Indeed, a 3D classification can be considered as a protocol. In this project, we have implemented our program as a Scipion protocol named as \texttt{split volume} inside the Xmipp plugin. 
 
 Typically, a Scipion protocol defines a set of input parameters which are displayed in the \gls{gui} when launching the protocol. The most relevant parameters of our protocol are listed hereafter:
 
