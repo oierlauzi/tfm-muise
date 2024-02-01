@@ -41,11 +41,11 @@ Each of these groups has a representative projection direction, which will be na
 Regarding the particles themselves, their projection direction is usually represented by a triplet of Euler angles: $(\theta, \phi, \psi)_j$. However, for our purposes, it becomes more handy to represent projection directions of the experimental images with unit vectors $\bm{\gamma_j} \in S^2$. The Euler angles can be easily converted to vector notation using the expression \eqref{eq:4.1:euler_to_vector}:
 
 \begin{equation}\label{eq:4.1:euler_to_vector}
-    \bm{\gamma_i} =
+    \bm{\gamma_j} =
     \begin{bmatrix}
-        \text{sin}(\text{tilt}_j) \cdot \text{cos}(\text{rot}_j) \\ 
-        \text{sin}(\text{tilt}_j) \cdot \text{sin}(\text{rot}_j) \\ 
-        \text{cos}(\text{tilt}_j)
+        \text{sin}(\phi_j) \cdot \text{cos}(\theta_j) \\ 
+        \text{sin}(\phi_j) \cdot \text{sin}(\theta_j) \\ 
+        \text{cos}(\phi_j)
     \end{bmatrix}
 \end{equation}
 

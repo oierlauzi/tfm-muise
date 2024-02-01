@@ -2,5 +2,14 @@
 
 \begin{document}
 
+La Microscopía Electrónica Criogénica, tambíen conocido por su acrónimo anglicano, CryoEM, se ha convertido en una técnica relevante para obtener imágenes de alta resolución de muestras biológicas tales como las proteínas. Uno de los desafíos clave en CryoEM es la heterogeneidad de las muestras, que se relaciona con que un solo conjunto de datos puede contener múltiples conformaciones o composiciones de las muestras. Esto es especialmente un problema, ya que la mayoría de los algoritmos de procesamiento de imágenes de Análisis de Partículas Aisladas (SPA), se basan en la suposición de que todas las proyecciones se originan a partir de la misma estructura 3D.
+
+La clasificación 3D es un proceso esencial para abordar este problema. Durante el proceso de clasificación 3D, las proyecciones se categorizan según la estructura de la que emanan, de modo que una vez segregadas, el supuesto de homogeneidad es válido. En este trabajo, proponemos un novedoso método de clasificación 3D que aprovecha algoritmos gráficos para mejorar la precisión y eficiencia de implementaciones del estado del arte.
+
+La mayoría de estas implementaciones modernas son víctimas del problema del sesgo de la solución inicial, un problema bien documentado en la literatura científica. En esencia, estas implementaciones refinan de forma iterativa una solución inicial generada aleatoriamente, corriendo el riesgo de caer en mínimos locales. El método propuesto, proporciona de manera determinista una solución inicial donde las clases están separadas al máximo, de modo que las iteraciones posteriores están sesgados hacia la solución correcta. Además, se necesita de un menor número de estas iteraciones hasta converger, lo que disminuye el tiempo total de ejecución.
+
+Para validar la eficacia de este enfoque, se han eligido varios conjuntos de datos experimentales y se han realizado meticulosas pruebas con ellas. De hecho, los resultados obtenidos respandan consistentemente las afirmaciones anteriores.
+
+Creemos que estos avances en la clasificación 3D pueden generar mejores procesos de procesamiento de imágenes para SPA, aumentando la productividad de los biólogos estructurales.
 
 \end{document}

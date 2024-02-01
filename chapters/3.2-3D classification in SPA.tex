@@ -24,7 +24,7 @@ Another common pitfall of the \gls{em} algorithms is the so called ``Attraction 
 In general, \gls{em} based 3D classification requires a prior knowledge of the number of classes in the dataset\cite{jonic2016}. This information is not always available to the user, specially when the protein is flexible and the concept of class does not exist (instead there is a continuum of states). Nevertheless, there are numerous approaches that circumvent this limitation such as performing hierarchical 3D classifications\cite{gomezblanco2022}\cite{zhou2022}.
 
 \subsection{3D Variance Analysis}
-3D variance analysis takes advantage of many reconstructions from randomly selected subsets in the data. Then, these random reconstructions are compared using variability analysis techniques such as \gls{pca} so that varying regions can be recognized\cite{penczek2006}. Usually, 3D variance analysis is used as a method to obtain a initial solution for subsequent \gls{em} interactions. 
+3D variance analysis takes advantage of many reconstructions from randomly selected subsets in the data. Then, these random reconstructions are compared using variability analysis techniques such as \gls{pca} so that varying regions can be recognized\cite{penczek2011}. Usually, 3D variance analysis is used as a method to obtain a initial solution for subsequent \gls{em} interactions. 
 
 Contrary to the \gls{em} approaches, 3D variance analysis does not require a prior knowledge about the number of classes, as these can be inferred from the densities in the latent space\cite{jonic2016}. Nevertheless, many hyper-parameters such as the number of particles per reconstruction, the number of random reconstructions and latent space dimensionality need to be chosen in advance.
 
