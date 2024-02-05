@@ -38,7 +38,7 @@ As a first step, our algorithm groups neighbouring projections, as they are cons
 
 Each of these groups has a representative projection direction, which will be named as $\bm{r_i} \in S^2$, where $S^2$ is the unit sphere in $\mathbb{R}^3$. These direction vectors are artificially generated in such a way that they are quasi equally spaced in the unit sphere. These points can be limited to a hemisphere, as projections emanating from antipodes are equivalent, except for a mirror transformation. Additionally, if the protein under study poses symmetry, this can be accounted to further reduce the directions to the unit cell of the corresponding symmetry group.
 
-Regarding the particles themselves, their projection direction is usually represented by a triplet of Euler angles: $(\theta, \phi, \psi)_j$. However, for our purposes, it becomes more handy to represent projection directions of the experimental images with unit vectors $\bm{\gamma_j} \in S^2$. The Euler angles can be easily converted to vector notation using the expression \eqref{eq:4.1:euler_to_vector}:
+Regarding the particles themselves, their projection direction is usually represented by a triplet of Euler angles: $(\theta, \phi, \psi)_j$. The physiscal meaning of these Euler angles is represented in Figure \ref{fig:4.1:euler}. However, for our purposes, it becomes more handy to represent projection directions of the experimental images with unit vectors $\bm{\gamma_j} \in S^2$. The Euler angles can be easily converted to vector notation using the expression \eqref{eq:4.1:euler_to_vector}. Note that in this conversion the $\psi$ parameter of the Euler angles is discarded, as this does not participate in the projection direction definition. Instead, it is used to define the in-plane rotation as, represented in Figure \ref{fig:4.1:euler}.
 
 \begin{equation}\label{eq:4.1:euler_to_vector}
     \bm{\gamma_j} =
@@ -48,6 +48,13 @@ Regarding the particles themselves, their projection direction is usually repres
         \text{cos}(\phi_j)
     \end{bmatrix}
 \end{equation}
+
+\begin{figure}[hbp]
+    \centering
+    \includegraphics[width=.5\textwidth]{implementation/euler}
+    \caption{Representation of the Euler angle convention used in CryoEM}
+    \label{fig:4.1:euler}
+\end{figure}
 
 At this point, the grouping of projections becomes trivial: A particle is considered to be on a group only if the angle between its projection direction and the representative direction of the group is smaller than some arbitrary threshold $\theta_{max}$:
 
@@ -72,7 +79,28 @@ Before attempting any classification, images need to be aligned to one another. 
 
 First, the center offset of the particles accounted by displacing them by their shift estimate $(\delta_x, \delta_y)$ in the opposite direction. This ensures that the particle is centered in the image frame. 
 
-Secondly, the in-plane rotation of the particles is corrected. To do so, the Euler angle estimates are converted to quaternion space. Then, the quaternion $\bm{Q_j} = (\bm{v_j}, w_j) = (\bm{u_j} \cdot \sin\theta_j, \cos\theta_j)$ is projected onto the $\bm{r_i}$ axis using the expression \eqref{eq:4.1:twist}. This expression was derived from the twist-swing\cite{chou2018} decomposition, which describes a quaternion with two components: a rotation around a certain axis and the residual part. In this case, we are only interested in the rotation around the projection direction.
+Secondly, the in-plane rotation of the particles is corrected. To do so, the Euler angle estimates are converted to quaternion space. Quaternions are a four-dimensional extension of complex numbers, commonly utilized to represent rotations in three-dimensional space. Quaternions can also be represented by a vector-scalar pair $\bm{Q} = (\bm{v}, w) = (\bm{u} \cdot \sin\alpha, \cos\alpha)$, this is, a rotation of $\alpha$ angular units around an unitary axis $\bm{u}$. Note that $\bm {v} = \bm{u} \cdot \sin\alpha$ relates to the complex part of the quaternion, whilst $\bm {w} = \cos\alpha$ involves its scalar component. 
+
+The Euler angles can be converted to quaternions using the Equation \eqref{eq:4.1:euler_to_quaternion}. Note that unlike the projection direction $\bm{\gamma_j}$, the in plane rotation $\psi$ is considered when computing the quaternion representation of the Euler angles.
+
+\begin{equation}\label{eq:4.1:euler_to_quaternion}
+\begin{split}
+    v_1 = 
+    \text{cos}\left( \frac{\phi}{2} \right) \cdot \text{cos}\left( \frac{\theta}{2} \right)  \cdot \text{cos}\left( \frac{\psi}{2} \right) -
+    \text{sin}\left( \frac{\phi}{2} \right) \cdot \text{sin}\left( \frac{\theta}{2} \right)  \cdot \text{sin}\left( \frac{\psi}{2} \right) \\
+    v_2 = 
+    \text{cos}\left( \frac{\phi}{2} \right) \cdot \text{cos}\left( \frac{\theta}{2} \right)  \cdot \text{sin}\left( \frac{\psi}{2} \right) +
+    \text{sin}\left( \frac{\phi}{2} \right) \cdot \text{sin}\left( \frac{\theta}{2} \right)  \cdot \text{cos}\left( \frac{\psi}{2} \right) \\
+    v_3 = 
+    \text{cos}\left( \frac{\phi}{2} \right) \cdot \text{sin}\left( \frac{\theta}{2} \right)  \cdot \text{cos}\left( \frac{\psi}{2} \right) -
+    \text{sin}\left( \frac{\phi}{2} \right) \cdot \text{cos}\left( \frac{\theta}{2} \right)  \cdot \text{sin}\left( \frac{\psi}{2} \right) \\
+    w = 
+    \text{sin}\left( \frac{\phi}{2} \right) \cdot \text{cos}\left( \frac{\theta}{2} \right)  \cdot \text{cos}\left( \frac{\psi}{2} \right) +
+    \text{cos}\left( \frac{\phi}{2} \right) \cdot \text{sin}\left( \frac{\theta}{2} \right)  \cdot \text{sin}\left( \frac{\psi}{2} \right)
+\end{split}
+\end{equation}
+
+We will use this vector-scalar representation to project the quaternion onto the $\bm{r_i}$ axis using the expression \eqref{eq:4.1:twist}. This expression was derived from the twist-swing\cite{chou2018} decomposition, which describes a quaternion with two components: a rotation around a certain axis and the residual part. In this case, we are only interested in the rotation around the projection direction.
 
 \begin{equation}\label{eq:4.1:twist}
     \hat{\psi} = \text{atan2}(\langle \bm{v_j}, \bm{r_i} \rangle, w)
@@ -125,7 +153,9 @@ In our implementation, we use \texttt{pytorch}\cite{paszke2019} to perform the \
 
 where $\bm{u_1}$ is the first principal component (largest eigenvalue) and $\bm{x_i}$ is the vector representation of a particle.
 
-We will assume that \gls{pca} projection values of follow Gaussian distributions $C_+ \sim \mathcal{N}(\mu_+, \sigma_+^2)$ and $C_- \sim \mathcal{N}(\mu_-, \sigma_-^2)$. Thus, using the projection values we can attempt a classification by fitting a \gls{gmm} of two components to their histogram. To avoid numerical stability issues, we enforce the same variance for both \gls{gmm} components ($\sigma_+^2 = \sigma_-^2$). Consequently, each component of the \gls{gmm} can be used to estimate the likelihood of their corresponding class. An example of such a fitting is displayed in Figure \ref{fig:4.1:gmm}.
+We will assume that \gls{pca} projection values of follow Gaussian distributions $C_+ \sim \mathcal{N}(\mu_+, \sigma_+^2)$ and $C_- \sim \mathcal{N}(\mu_-, \sigma_-^2)$. Thus, using the projection values we can attempt a classification by fitting a \gls{gmm} of two components to their histogram. A \gls{gmm} is a probabilistic model that represents the probability distribution of a dataset as a mixture of multiple Gaussian distributions.
+
+To avoid numerical stability issues, we enforce the same variance for both \gls{gmm} components ($\sigma_+^2 = \sigma_-^2$). Consequently, each component of the \gls{gmm} can be used to estimate the likelihood of their corresponding class. An example of such a fitting is displayed in Figure \ref{fig:4.1:gmm}.
 
 \begin{figure}[hbp]
     \centering
@@ -208,7 +238,7 @@ Until this point we have only shifted our optimisation problem into other domain
 
 A graph cut is a partition of the graph into two disjoint sets of vertices (no edges connecting the two subsets). Thus, the the graph cut size is the sum of the edges that need to be removed to obtain a disjoint bi-partition. Considering the former definition, the graph maximum cut is defined as ``A cut whose size is at least the size of any other cut''\cite{sudakov2005}. However, similar to the previous analogies, this problem is not easy to solve, as it is deemed NP-Hard\cite{chan2014}. Luckily, numerous heuristic approaches exist that provide reasonably bounded solutions.
 
-In our case, we have decided to use an approach based on \gls{sdp}. This approximation is guaranteed to find a solution that is at least $87 \si{\percent}$ accurate while also being computationally efficient\cite{kemal2008}.
+In our case, we have decided to use an approach based on \gls{sdp}. \Gls{sdp} is a mathematical optimization technique that extends linear programming to solve optimization problems involving symmetric matrices, offering powerful tools for addressing a wide range of real-world optimization challenges. Using a \gls{sdp} approximation to solve the graph maximum cut problem is guaranteed to find a solution that is at least $87 \si{\percent}$ accurate while also being computationally efficient\cite{kemal2008}.
 
 The \gls{sdp} approach involves relaxing $\sigma_i \in \{-1, +1\}$ to $\bm{x_i} \in S^{N-1}$ where $S^{N-1}$ is the unit sphere in $\mathbb{R}^N$. This allows us to define the matrix $\bm{X}$ of pairwise dot products:
 
@@ -243,7 +273,7 @@ Considering all these constraints, we can pose the \gls{sdp} problem shown in Eq
 \end{aligned}
 \end{equation}
 
-In our implementation, we use \texttt{cvxpy}\cite{agrawal2018}\cite{diamond2016} package to solve this \gls{sdp} problem. To get back the values of $\bm{x_i}$ from $\bm{X}$ we use matrix square root function available in \texttt{scipy}\cite{virtanen2020}. Finally, we undo the relaxation to extract $\sigma_i$ from $\bm{x_i}$\cite{kemal2008}:
+In our implementation, we use \texttt{cvxpy}\cite{agrawal2018}\cite{diamond2016} package to solve this \gls{sdp} problem. To get back the values of $\bm{x_i}$ from $\bm{X}$ we use matrix square root function ($\bm{Y} = \bm{X}^\frac{1}{2}$) available in \texttt{scipy}\cite{virtanen2020}. Finally, we undo the relaxation to extract $\sigma_i$ from $\bm{x_i}$\cite{kemal2008}:
 
 \begin{equation}
     \sigma_i = \text{sign}(\langle \bm{v}, \bm{x_i} \rangle)
